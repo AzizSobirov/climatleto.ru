@@ -1,0 +1,45 @@
+@import "base/mixins";
+
+@include font-face("Unbounded", 400);
+@include font-face("Montserrat", 400);
+
+:root {
+  --primary: #c44e47;
+  --primary-light: #f4736b;
+  --text-color: #31424f;
+  --gray: #7c7c7c;
+  --font-primary: "Unbounded", sans-serif;
+  --font-secondary: "Montserrat", sans-serif;
+  --transition-ease: 0.3s ease;
+  --transition-bezier: 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  --content-width: 1200px;
+  --content-padding: 20px;
+}
+
+@include media("xl") {
+  :root {
+    --content-width: 1024px;
+  }
+}
+@include media("lg") {
+  :root {
+    --content-width: 768px;
+  }
+}
+@include media("md") {
+  :root {
+    --content-width: 640px;
+  }
+}
+@include media("sm") {
+  :root {
+    --content-width: 475px;
+    --content-padding: 16px;
+  }
+}
+
+@import "base/normalize";
+@import "base/helpers";
+@import "ui/index";
+@import "components/index";
+@import "index";

@@ -1,0 +1,9 @@
+/* Styles for the TheHeader component */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: var(--transition-ease);
+  z-index: 10;
+}
