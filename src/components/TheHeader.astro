@@ -3,31 +3,74 @@ import { H2, Image, Icon } from "ui";
 ---
 
 <header class="header">
-  <div class="container">
-    <a
-      href="/"
-      class="header__logo"
-      title="Команда по автоподбору №1 в Санкт-Петербурге"
-    >
-      <Image src="logo.svg" alt="logo" />
-      <div class="text-xs font-light">
-        Команда по автоподбору №1 <br />  в Санкт-Петербурге
-      </div>
-    </a>
+  <div class="header__content">
+    <div class="container">
+      <a href="/" class="header__logo" title="Climat Leto">
+        Climat <br /> Leto
+      </a>
 
-    <nav class="header__menu">
-      <ul class="menu">
-        <li class="menu-item active"><a href="/">Главная</a></li>
-        <li class="menu-item menu-item-has-children">
-          <a href="/services">Услуги</a>
-          <ul class="sub-menu">
-            <li class="menu-item"><a href="#">Подбор новых авто</a></li>
-            <li class="menu-item"><a href="#">Эндоскопия</a></li>
-          </ul>
-        </li>
-        <li class="menu-item"><a href="/about">О нас</a></li>
-        <li class="menu-item"><a href="/contacts">Контакты</a></li>
-      </ul>
-    </nav>
+      <div class="header__address">
+        <Icon src="marker.svg" />
+        <span> Работаем по <br /> Москве и МО</span>
+      </div>
+
+      <div class="header__contact">
+        <span>Сейчас работаем, звоните</span>
+        <a href="tel:+79206076602" title="phone">+7 (920) 607 66-02</a>
+      </div>
+
+      <div class="header__socials">
+        <a href="https://wa.me/+79206076602" title="whatsapp">
+          <Icon src="whatsapp.svg" />
+        </a>
+        <a href="https://t.me/+79206076602" title="whatsapp">
+          <Icon src="telegram.svg" />
+        </a>
+      </div>
+
+      <div
+        class="btn variant-solid size-small"
+        role="button"
+        aria-label="Перезвоните мне"
+        tabindex="0"
+        data-modal="callback"
+      >
+        Перезвоните мне
+      </div>
+
+      <div
+        class="header__burger"
+        role="button"
+        aria-label="Открыть меню"
+        tabindex="0"
+      >
+        <Icon src="menu.svg" />
+      </div>
+    </div>
   </div>
+
+  <nav class="header__menu">
+    <div class="header__menu-overlay"></div>
+    <div
+      class="header__menu-close"
+      role="button"
+      aria-label="Закрыть меню"
+      tabindex="0"
+    >
+      <Icon src="close.svg" />
+    </div>
+
+    <div class="container">
+      <ul class="menu">
+        <li class="menu-item"><a href="#about">О КОМПАНИИ</a></li>
+        <li class="menu-item"><a href="#services">УСЛУГИ</a></li>
+        <li class="menu-item"><a href="#price">СКАЧАТЬ ПРАЙС-ЛИСТ</a></li>
+        <li class="menu-item"><a href="#reviews">ОТЗЫВЫ</a></li>
+        <li class="menu-item"><a href="#contacts">КОНТАКТЫ</a></li>
+        <li class="menu-item">
+          <a href="#brands">С КАКИМИ МАРКАМИ РАБОТАЕМ</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 </header>

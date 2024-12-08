@@ -213,36 +213,26 @@ phoneMasks.forEach((input) => {
 // header
 const header = document.querySelector(".header");
 if (header) {
-  const header = document.querySelector(".header");
+  const burger = header.querySelector(".header__burger");
+  const menu = header.querySelector(".header__menu");
+  const close = header.querySelector(".header__menu-close");
+  const overlay = header.querySelector(".header__menu-overlay");
+  const links = header.querySelectorAll(".header__menu ul li a");
+
+  const toggleMenu = () => {
+    burger.classList.toggle("active");
+    menu.classList.toggle("active");
+  };
+
+  burger.addEventListener("click", () => toggleMenu());
+  close.addEventListener("click", () => toggleMenu());
+  overlay.addEventListener("click", () => toggleMenu());
+  links.forEach((link) => {
+    link.addEventListener("click", () => toggleMenu());
+  });
+
   window.addEventListener("scroll", function () {
     header.classList.toggle("sticky", window.scrollY > 0);
-  });
-
-  const menu = header.querySelector(".header__menu");
-  const services = header.querySelector(".menu-item-has-children");
-  const servicesSubMenu = services.querySelector(".sub-menu");
-
-  const div = document.createElement("div");
-  div.classList.add("icon-plus");
-  div.innerHTML =
-    '<svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 5H9.5" stroke="currentColor" stroke-linecap="round"/><path d="M1 5H9.5" stroke="currentColor" stroke-linecap="round"/><path d="M1 5H9.5" stroke="currentColor" stroke-linecap="round"/><path d="M5.25 0.75L5.25 9.25" stroke="currentColor" stroke-linecap="round"/><path d="M5.25 0.75L5.25 9.25" stroke="currentColor" stroke-linecap="round"/><path d="M5.25 0.75L5.25 9.25" stroke="currentColor" stroke-linecap="round"/></svg>';
-
-  services.appendChild(div);
-
-  services.addEventListener("mouseenter", () => {
-    servicesSubMenu.style.display = "flex";
-    setTimeout(() => {
-      servicesSubMenu.style.opacity = 1;
-      servicesSubMenu.style.transform = "translateY(0px)";
-    }, 300);
-  });
-
-  services.addEventListener("mouseleave", () => {
-    servicesSubMenu.style.opacity = 0;
-    servicesSubMenu.style.transform = "translateY(10px)";
-    setTimeout(() => {
-      servicesSubMenu.style.display = "none";
-    }, 300);
   });
 }
 

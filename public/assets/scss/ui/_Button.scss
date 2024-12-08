@@ -3,35 +3,27 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  white-space: nowrap;
   transition: var(--transition-ease);
 
   &.variant-solid {
     padding: 10px 30px;
-    color: var(--primary);
+    color: #fff;
     font-size: 16px;
-    font-family: var(--font-secondary);
-    background: #fff;
-    border-radius: 5px;
-    white-space: nowrap;
+    background: var(--primary);
+    border-radius: 999px;
 
-    @include media("xs") {
-      font-size: 14px;
+    &:hover {
+      background: var(--primary-dark);
     }
   }
 
-  &.variant-outline {
-    padding: 10px 22px;
-    border: 1px solid var(--primary);
-    border-radius: 10px;
-    line-height: 1;
-    white-space: nowrap;
+  &.size-small {
+    padding: 20px 35px;
+    font-size: 16px;
 
-    &:hover {
-      color: #fff;
-      background: var(--primary);
-    }
-
-    @include media("sm") {
+    @include media("3xl") {
+      padding: 18px 30px;
       font-size: 14px;
     }
   }

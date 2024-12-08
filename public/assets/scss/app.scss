@@ -1,18 +1,19 @@
 @import "base/mixins";
 
-@include font-face("Unbounded", 400);
-@include font-face("Montserrat", 400);
+@include font-face("Steppe", 400);
+@include font-face("Steppe", 600);
 
 :root {
-  --primary: #c44e47;
-  --primary-light: #f4736b;
-  --text-color: #31424f;
-  --gray: #7c7c7c;
-  --font-primary: "Unbounded", sans-serif;
-  --font-secondary: "Montserrat", sans-serif;
+  --primary: #4ea1ef;
+  --primary-dark: #4a89c5;
+  --green: #00c944;
+  --green-dark: #2bb446;
+  --text-color: #1c1c1c;
+  --text-gray: #797979;
+  --font-primary: "Steppe", sans-serif;
   --transition-ease: 0.3s ease;
   --transition-bezier: 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-  --content-width: 1200px;
+  --content-width: 1400px;
   --content-padding: 20px;
 }
 
