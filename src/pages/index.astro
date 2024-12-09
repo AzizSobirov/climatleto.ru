@@ -7,7 +7,60 @@ import { Section, Image, Icon, H1, H2, H3 } from "ui";
   <main>
     <!-- Intro -->
     <Section name="intro">
-      <H1>Hello world</H1>
+      <div class="bg-img">
+        <Image src="intro/bg.jpg" />
+      </div>
+
+      <div class="intro__content">
+        <H2 class="font-semibold">
+          Обслуживание кондиционеров, <br /> чистка и заправка фреоном в
+          <br /> Москве и Подмосковье!
+        </H2>
+        <div class="intro__prices">
+          <div class="text-h4 font-semibold">
+            Чистка кондиционеров от
+            <span class="text-gray line-through">3500</span>
+            <span class="text-primary">2500₽</span>
+          </div>
+          <div class="text-h4 font-semibold">
+            Заправка фреоном от
+            <span class="text-gray line-through">1500</span>
+            <span class="text-primary">800₽</span>
+          </div>
+          <br />
+          <div class="text-h4 font-semibold">
+            Для любых кондиционеров.
+            <span class="text-primary">
+              Без предоплаты и со скидкой до 20%
+            </span>
+          </div>
+        </div>
+        <div class="intro__advantages">
+          <div class="intro__advantages-item">
+            <Icon src="check.svg" />
+            <div>
+              <span class="text-primary font-semibold">Бесплатно</span>
+              приедем и выявим причину поломки
+            </div>
+          </div>
+          <div class="intro__advantages-item">
+            <Icon src="check.svg" />
+            <div>
+              <span class="text-primary font-semibold">Оплата</span>
+              только <span class="font-semibold">после оказания услуги</span>
+            </div>
+          </div>
+          <div class="intro__advantages-item">
+            <Icon src="check.svg" />
+            <div>
+              <span class="font-semibold"> Опыт работы более</span>
+              <span class="text-primary font-semibold">10 лет.</span>
+              За 2023 год выполнили более
+              <span class="text-primary font-semibold">100 заказов</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </Section>
 
     <div class="example"></div>
