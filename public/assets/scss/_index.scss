@@ -29,6 +29,19 @@ main {
     z-index: 2;
     padding: 50px 0;
   }
+
+  &__advantages {
+    width: 100%;
+    max-width: 680px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: flex-start;
+
+    &-item {
+      flex: 1 0 280px;
+    }
+  }
 }
 
 .example {
