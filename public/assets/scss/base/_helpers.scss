@@ -104,8 +104,8 @@
 .text-h3 {
   font-size: 26px;
 
-  @include media("sm") {
-    font-size: 18px;
+  @include media("3xl") {
+    font-size: 20px;
   }
 }
 

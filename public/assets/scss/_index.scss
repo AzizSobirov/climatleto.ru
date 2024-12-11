@@ -276,9 +276,19 @@ main {
     align-items: center;
     gap: 30px;
 
-    &::before {
+    @include media("sm") {
+      padding: 30px;
+      gap: 60px;
+    }
+
+    &::before,
+    &::after {
       content: "";
       position: absolute;
+      pointer-events: none;
+    }
+
+    &::before {
       top: 0;
       left: 50%;
       transform: translateX(-50%);
@@ -288,27 +298,70 @@ main {
       background: #f7f7f7;
       border-radius: 40px;
       z-index: -1;
-      pointer-events: none;
 
       @include media("3xl") {
         width: calc(100% + 80px);
       }
       @include media("sm") {
+        max-width: calc(100% - 25px);
+        height: calc(100% - 1010px);
+        border-radius: 24px;
+      }
+    }
+
+    &::after {
+      bottom: 100px;
+      left: -400px;
+      width: 600px;
+      height: 600px;
+      background: url("../img/meter.png") center/contain no-repeat;
+
+      @include media("3xl") {
+        bottom: 20px;
+      }
+      @include media("lg") {
         display: none;
+      }
+
+      @include media("sm") {
+        left: -200px;
+        bottom: 810px;
+        width: 300px;
+        height: 300px;
       }
     }
 
     & > .text-h2 {
       margin-bottom: 20px;
       text-align: center;
+
+      @include media("sm") {
+        margin-bottom: 0;
+
+        br {
+          display: none;
+        }
+      }
     }
   }
 
   &__list {
+    position: relative;
     width: 100%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
+    z-index: 2;
+
+    @include media("3xl") {
+      gap: 15px;
+    }
+    @include media("lg") {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include media("sm") {
+      grid-template-columns: 1fr;
+    }
   }
 
   &__service {
@@ -339,6 +392,10 @@ main {
       flex-direction: column;
       align-items: flex-start;
       gap: 20px;
+
+      @include media("sm") {
+        gap: 15px;
+      }
     }
 
     .text-h3 {
@@ -356,6 +413,13 @@ main {
       flex-direction: column;
       align-items: flex-start;
       gap: 15px;
+
+      @include media("3xl") {
+        font-size: 14px;
+      }
+      @include media("sm") {
+        font-size: 16px;
+      }
     }
 
     &-price {
@@ -365,12 +429,23 @@ main {
       font-size: 28px;
       font-weight: 700;
       text-align: center;
+
+      @include media("3xl") {
+        font-size: 24px;
+      }
+      @include media("sm") {
+        font-size: 20px;
+      }
     }
 
     .btn {
       padding: 25px 0;
       width: 100%;
       font-size: 18px;
+
+      @include media("3xl") {
+        font-size: 16px;
+      }
     }
   }
 
@@ -386,6 +461,19 @@ main {
     justify-content: space-between;
     gap: 20px;
 
+    @include media("3xl") {
+      padding: 40px 50px;
+    }
+    @include media("lg") {
+      background: #252628;
+      flex-direction: column;
+      gap: 30px;
+    }
+    @include media("sm") {
+      padding: 30px 15px;
+      border-radius: 24px;
+    }
+
     &-text {
       width: 100%;
       max-width: 520px;
@@ -396,6 +484,37 @@ main {
 
       p {
         line-height: 1.4;
+      }
+
+      @include media("3xl") {
+        max-width: 480px;
+
+        p {
+          font-size: 16px;
+        }
+      }
+      @include media("lg") {
+        max-width: 100%;
+      }
+      @include media("sm") {
+        .text-h2 {
+          font-size: 24px;
+          width: 100%;
+          text-align: center;
+        }
+      }
+    }
+
+    &-img {
+      width: 100%;
+      border-radius: 40px;
+      display: none;
+
+      @include media("lg") {
+        display: block;
+      }
+      @include media("sm") {
+        border-radius: 24px;
       }
     }
 
@@ -411,6 +530,18 @@ main {
       align-items: center;
       gap: 20px;
       --icon-size: 30px;
+
+      @include media("3xl") {
+        padding: 15px 30px;
+        font-size: 16px;
+        --icon-size: 24px;
+      }
+      @include media("sm") {
+        padding: 20px 25px;
+        font-size: 14px;
+        line-height: 1.2;
+        --icon-size: 30px;
+      }
     }
 
     &-content {
@@ -421,14 +552,42 @@ main {
       align-items: flex-start;
       gap: 15px;
 
+      @include media("3xl") {
+        max-width: 380px;
+      }
+      @include media("lg") {
+        max-width: 100%;
+      }
+      @include media("sm") {
+        gap: 10px;
+      }
+
       input {
         padding: 0 30px;
         width: 100%;
         height: 85px;
         color: var(--text-color);
-        font-size: 16px;
+        font-size: 18px;
         background: #fff;
         border-radius: 999px;
+
+        @include media("3xl") {
+          padding: 0 25px;
+          height: 65px;
+          font-size: 14px;
+        }
+      }
+
+      & > .iti {
+        padding-left: 20px;
+        color: var(--text-color);
+        width: 100%;
+        background: #fff;
+        border-radius: 999px;
+
+        button {
+          margin-left: 20px;
+        }
       }
 
       .btn {
@@ -437,15 +596,27 @@ main {
         width: 100%;
         font-size: 18px;
         font-weight: 700;
+
+        @include media("3xl") {
+          height: 65px;
+          font-size: 16px;
+        }
       }
 
       .text-policy {
         width: 100%;
         text-align: center;
         line-height: 1.5;
+
+        @include media("3xl") {
+          font-size: 14px;
+        }
+        @include media("sm") {
+          font-size: 12px;
+        }
       }
     }
   }
 }
 
-// @include show(".endoscopy");
+// @include show(".services");
