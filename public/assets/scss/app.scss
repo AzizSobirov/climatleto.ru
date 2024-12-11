@@ -17,6 +17,11 @@
   --content-padding: 20px;
 }
 
+@include media("3xl") {
+  :root {
+    --content-width: 1180px;
+  }
+}
 @include media("xl") {
   :root {
     --content-width: 1024px;

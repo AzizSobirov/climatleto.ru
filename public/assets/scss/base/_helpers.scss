@@ -93,8 +93,8 @@
 .text-h2 {
   font-size: 38px;
 
-  @include media("lg") {
-    font-size: 24px;
+  @include media("3xl") {
+    font-size: 32px;
   }
   @include media("sm") {
     font-size: 20px;
@@ -111,4 +111,20 @@
 
 .text-h4 {
   font-size: 20px;
+
+  @include media("3xl") {
+    font-size: 18px;
+  }
+  @include media("sm") {
+    font-size: 16px;
+  }
+}
+
+.text-h5 {
+  font-size: 18px;
+  line-height: 1.4;
+
+  @include media("3xl") {
+    font-size: 16px;
+  }
 }

@@ -1,19 +1,3 @@
-// Helper function to parse dataset options
-const parseOption = (
-  data,
-  key,
-  defaultValue = false,
-  parseType = "boolean"
-) => {
-  const value = data[key];
-  if (parseType === "boolean")
-    return value !== undefined ? value === "true" : defaultValue;
-  if (parseType === "number")
-    return value !== undefined ? parseFloat(value) : defaultValue;
-  if (parseType === "string") return value !== undefined ? value : defaultValue;
-  return defaultValue;
-};
-
 // modal
 const modal = {
   el: document.querySelector(".modal"),
@@ -80,84 +64,29 @@ modalTriggers.forEach((trigger) => {
   });
 });
 
-// Initialize the carousel
-const carouselTriggers = document.querySelectorAll(".carousel");
-carouselTriggers.forEach((trigger) => {
-  const container = trigger.querySelector(".f-carousel");
-  const thumbs = trigger.querySelector(".f-thumbs");
+// header
+const header = document.querySelector(".header");
+if (header) {
+  const burger = header.querySelector(".header__burger");
+  const menu = header.querySelector(".header__menu");
+  const close = header.querySelector(".header__menu-close");
+  const overlay = header.querySelector(".header__menu-overlay");
+  const links = header.querySelectorAll(".header__menu ul li a");
 
-  // Ensure the main container exists
-  if (!container) {
-    console.warn("Carousel container not found for:", trigger);
-    return;
-  }
+  const toggleMenu = () => {
+    burger.classList.toggle("active");
+    menu.classList.toggle("active");
+  };
 
-  // Initialize the main swiper (Carousel)
-  const swiper = new Carousel(container, {
-    adaptiveHeight: parseOption(
-      container.dataset,
-      "adaptiveHeight",
-      false,
-      "boolean"
-    ),
-    center: parseOption(container.dataset, "center", false, "boolean"),
-    direction: parseOption(
-      container.dataset,
-      "direction",
-      "horizontal",
-      "string"
-    ),
-    infinite: parseOption(container.dataset, "infinite", false, "boolean"),
-    initialSlide: parseOption(container.dataset, "initialSlide", 0, "number"),
-    transition: parseOption(container.dataset, "transition", "slide", "string"),
-    // plugins
-    Dots: parseOption(container.dataset, "dots", false, "boolean"),
-    Navigation: parseOption(container.dataset, "navigation", false, "boolean"),
-    Panzoom: {
-      touch: parseOption(container.dataset, "touch", true, "boolean"),
-    },
+  burger.addEventListener("click", () => toggleMenu());
+  close.addEventListener("click", () => toggleMenu());
+  overlay.addEventListener("click", () => toggleMenu());
+  links.forEach((link) => {
+    link.addEventListener("click", () => toggleMenu());
   });
 
-  // Initialize the thumbnail swiper (Carousel) if thumbs are available
-  if (thumbs) {
-    const thumbSwiper = new Carousel(thumbs, {
-      classes: {
-        container: "f-carousel__thumbs",
-        slide: "f-thumbs__slide",
-        track: "f-thumbs__track",
-        viewport: "f-thumbs__viewport",
-      },
-      infinite: parseOption(thumbs.dataset, "infinite", false, "boolean"),
-      transition: parseOption(thumbs.dataset, "transition", "slide", "string"),
-      // plugins
-      Dots: false, // Set to false by default for thumbs
-      Navigation: parseOption(thumbs.dataset, "navigation", false, "boolean"),
-      Panzoom: {
-        touch: parseOption(thumbs.dataset, "touch", true, "boolean"),
-      },
-      Sync: { target: swiper }, // Sync thumbs with the main swiper
-    });
-  }
-});
-
-// Initialize the fancybox
-const fancyboxTriggers = Array.from(
-  document.querySelectorAll("[data-fancybox]")
-).filter((trigger) => trigger.dataset.fancybox);
-if (fancyboxTriggers) {
-  const fancyboxInstances = [];
-  fancyboxTriggers.forEach((trigger) => {
-    const name = trigger.dataset.fancybox;
-    if (fancyboxInstances.includes(name)) {
-      return; // Skip if already bound
-    }
-    // Add the name to the `fancyboxInstances` list
-    fancyboxInstances.push(name);
-  });
-  fancyboxInstances.forEach((name) => {
-    Fancybox.bind(`[data-fancybox="${name}"]`, {
-      Images: { Panzoom: { maxScale: 3 } },
-    });
+  window.addEventListener("scroll", function () {
+    header.classList.toggle("sticky", window.scrollY > 0);
   });
 }
 
@@ -209,32 +138,13 @@ phoneMasks.forEach((input) => {
   input.addEventListener("keydown", mask, false);
 });
 
-// * -- Main Code -- * //
-// header
-const header = document.querySelector(".header");
-if (header) {
-  const burger = header.querySelector(".header__burger");
-  const menu = header.querySelector(".header__menu");
-  const close = header.querySelector(".header__menu-close");
-  const overlay = header.querySelector(".header__menu-overlay");
-  const links = header.querySelectorAll(".header__menu ul li a");
-
-  const toggleMenu = () => {
-    burger.classList.toggle("active");
-    menu.classList.toggle("active");
-  };
-
-  burger.addEventListener("click", () => toggleMenu());
-  close.addEventListener("click", () => toggleMenu());
-  overlay.addEventListener("click", () => toggleMenu());
-  links.forEach((link) => {
-    link.addEventListener("click", () => toggleMenu());
+const forms = document.querySelectorAll("form");
+forms.forEach((form) => {
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    successSend();
   });
-
-  window.addEventListener("scroll", function () {
-    header.classList.toggle("sticky", window.scrollY > 0);
-  });
-}
+});
 
 function successSend() {
   const modalEl = document.querySelector(".modal");
@@ -250,10 +160,23 @@ function successSend() {
   }, 3000);
 }
 
-const forms = document.querySelectorAll("form");
-forms.forEach((form) => {
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    successSend();
+// Initialize the fancybox
+const fancyboxTriggers = Array.from(
+  document.querySelectorAll("[data-fancybox]")
+).filter((trigger) => trigger.dataset.fancybox);
+if (fancyboxTriggers) {
+  const fancyboxInstances = [];
+  fancyboxTriggers.forEach((trigger) => {
+    const name = trigger.dataset.fancybox;
+    if (fancyboxInstances.includes(name)) {
+      return; // Skip if already bound
+    }
+    // Add the name to the `fancyboxInstances` list
+    fancyboxInstances.push(name);
   });
-});
+  fancyboxInstances.forEach((name) => {
+    Fancybox.bind(`[data-fancybox="${name}"]`, {
+      Images: { Panzoom: { maxScale: 3 } },
+    });
+  });
+}

@@ -40,31 +40,200 @@ import { Section, Image, Icon, H1, H2, H3 } from "ui";
         <div class="intro__advantages">
           <div class="intro__advantages-item">
             <Icon src="check.svg" />
-            <div>
+            <div class="text-h5">
               <span class="text-primary font-semibold">Бесплатно</span>
-              приедем и выявим причину поломки
+              приедем <br /> и выявим причину <br /> поломки
             </div>
           </div>
           <div class="intro__advantages-item">
             <Icon src="check.svg" />
-            <div>
+            <div class="text-h5">
               <span class="text-primary font-semibold">Оплата</span>
-              только <span class="font-semibold">после оказания услуги</span>
+              только <span class="font-semibold"
+                >после <br /> оказания услуги</span
+              >
             </div>
           </div>
           <div class="intro__advantages-item">
             <Icon src="check.svg" />
-            <div>
+            <div class="text-h5">
               <span class="font-semibold"> Опыт работы более</span>
               <span class="text-primary font-semibold">10 лет.</span>
-              За 2023 год выполнили более
+              <br />
+              За 2023 год выполнили <br /> более
               <span class="text-primary font-semibold">100 заказов</span>
             </div>
+          </div>
+        </div>
+
+        <div class="intro__bottom">
+          <a href="#calculate" class="btn variant-solid">
+            Рассчитать стоимость
+          </a>
+          <div class="text-h5">
+            <span class="text-gray">После расчета получите -</span>
+            <br />
+            <span class="font-semibold">
+              скидку на услуги <span class="text-primary">10%</span>
+            </span>
           </div>
         </div>
       </div>
     </Section>
 
-    <div class="example"></div>
+    <!-- Calculate -->
+    <Section name="calculate" id="calculate">
+      <H2 class="font-semibold">
+        <span class="text-primary">Рассчитайте стоимость услуг</span>
+        <br />
+        для вашего кондиционера за 60 секунд
+      </H2>
+      <iframe
+        src="//quiz.marquiz.ru/65e34a1cb1c84f0026ec36d1?cookies=%7B%22_ym_uid%22%3A%221733549456595564081%22%7D&href=https%3A%2F%2Fclimatleto.ru%2F&mode=inline&referrer=https%3A%2F%2Fclimatleto.ru%2F"
+      ></iframe>
+    </Section>
+
+    <!-- Services -->
+    <Section name="services">
+      <H2 class="font-semibold"
+        >Команда специалистов готова выполнить <br /> работы любой сложности</H2
+      >
+      <div class="services__list">
+        <div class="services__service">
+          <div class="services__service-img">
+            <Image src="services/1.jpg" />
+          </div>
+          <div class="services__service-content">
+            <H3 class="font-semibold">Заправка <br /> кондиционеров </H3>
+            <ul class="services__service-details">
+              <li>Заправка газом: 22, 410, 408, 32</li>
+            </ul>
+            <div class="services__service-price">от 800 ₽</div>
+            <div
+              class="btn variant-solid"
+              role="button"
+              aria-label="Вызвать специалиста"
+              tabindex="0"
+              data-modal="contact"
+            >
+              Вызвать специалиста
+            </div>
+          </div>
+        </div>
+        <div class="services__service">
+          <div class="services__service-img">
+            <Image src="services/2.jpg" />
+          </div>
+          <div class="services__service-content">
+            <H3 class="font-semibold">Ремонт <br /> кондиционеров </H3>
+            <ul class="services__service-details">
+              <li>Замена плат наружнего и внутреннего блока</li>
+              <li>Замена компрессора</li>
+              <li>Замена конденсаторов</li>
+            </ul>
+            <div class="services__service-price">от 400 ₽</div>
+            <div
+              class="btn variant-solid"
+              role="button"
+              aria-label="Вызвать специалиста"
+              tabindex="0"
+              data-modal="contact"
+            >
+              Вызвать специалиста
+            </div>
+          </div>
+        </div>
+        <div class="services__service">
+          <div class="services__service-img">
+            <Image src="services/3.jpg" />
+          </div>
+          <div class="services__service-content">
+            <H3 class="font-semibold">Чистка <br /> кондиционеров </H3>
+            <ul class="services__service-details">
+              <li>Чистка внутреннего блока поверхностная</li>
+              <li>Чистка углублённая устранения грибка и плесени</li>
+              <li>Чистка с керхера наружнего блока</li>
+            </ul>
+            <div class="services__service-price">от 2500 ₽</div>
+            <div
+              class="btn variant-solid"
+              role="button"
+              aria-label="Вызвать специалиста"
+              tabindex="0"
+              data-modal="contact"
+            >
+              Вызвать специалиста
+            </div>
+          </div>
+        </div>
+        <div class="services__service">
+          <div class="services__service-img">
+            <Image src="services/4.jpg" />
+          </div>
+          <div class="services__service-content">
+            <H3 class="font-semibold">Обслуживание <br /> кондиционеров </H3>
+            <ul class="services__service-details">
+              <li>Чистка теплообменника</li>
+              <li>Замена заправочного клапана</li>
+            </ul>
+            <div class="services__service-price">от 450 ₽</div>
+            <div
+              class="btn variant-solid"
+              role="button"
+              aria-label="Вызвать специалиста"
+              tabindex="0"
+              data-modal="contact"
+            >
+              Вызвать специалиста
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="services__form">
+        <div class="bg-img">
+          <Image src="services/form.jpg" />
+        </div>
+
+        <div class="services__form-text">
+          <H2 class="font-semibold">Не нашли свою поломку?</H2>
+          <p class="text-h4">
+            <span class="font-semibold"
+              >Мастер поможет обнаружить проблему и подсказать, какие услуги
+              требуются.</span
+            >
+            Мы оказываем все услуги по обслуживанию кондиционеров, даже те, которых
+            нет на сайте, свяжитесь с нами и мы поможем с выбором
+          </p>
+          <a href="#" class="services__form-contact">
+            Или напишите нам в WhatsApp
+            <Icon src="whatsapp-primary.svg" />
+          </a>
+        </div>
+
+        <form class="services__form-content">
+          <input type="text" name="name" placeholder="Ваше имя" required />
+          <input
+            type="text"
+            name="phone"
+            placeholder="Номер телефона"
+            required
+          />
+          <button class="btn variant-solid" type="submit"> Отправить </button>
+          <div class="text-policy">
+            Нажимая кнопку вы соглашаетесь с условиями
+            <span
+              class="text-primary font-semibold underline"
+              role="button"
+              tabindex="0"
+              aria-label="Политики конфиденциальности данных"
+              data-modal="policy"
+            >
+              Политики конфиденциальности данных
+            </span>
+          </div>
+        </form>
+      </div>
+    </Section>
   </main>
 </App>

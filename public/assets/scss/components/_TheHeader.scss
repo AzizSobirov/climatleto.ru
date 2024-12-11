@@ -5,7 +5,6 @@
   left: 0;
   z-index: 10;
   width: 100%;
-  background: #fff;
   transition: var(--transition-ease);
   display: flex;
   flex-direction: column;
@@ -14,6 +13,7 @@
   &__content {
     padding: 15px 0;
     width: 100%;
+    background: #fff;
 
     @include media("lg") {
       background: #97979730;
@@ -234,7 +234,7 @@
   &__menu {
     padding: 25px 0;
     width: 100%;
-    background: #97979730;
+    background: #97979710;
     backdrop-filter: blur(20px);
 
     @include media("lg") {
@@ -318,6 +318,9 @@
       font-size: 16px;
       text-transform: uppercase;
 
+      @include media("3xl") {
+        font-size: 14px;
+      }
       @include media("lg") {
         color: #fff;
         font-size: 20px;
