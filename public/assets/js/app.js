@@ -204,3 +204,31 @@ let swiperBrands = new Swiper(".brands .swiper", {
     },
   },
 });
+
+// projects swiper
+let swiperProjects = new Swiper(".projects .swiper", {
+  slidesPerView: "auto",
+  spaceBetween: 15,
+  loop: true,
+  autoplay: {
+    delay: 5000,
+  },
+  navigation: {
+    nextEl: ".projects .btn-next",
+    prevEl: ".projects .btn-prev",
+  },
+  breakpoints: {
+    641: {
+      slidesPerView: 2,
+      spaceBetween: 20,
+    },
+    1025: {
+      slidesPerView: 3,
+      spaceBetween: 40,
+    },
+    1680: {
+      slidesPerView: 3,
+      spaceBetween: 50,
+    },
+  },
+});

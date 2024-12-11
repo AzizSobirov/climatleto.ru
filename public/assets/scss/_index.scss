@@ -780,7 +780,7 @@ main {
       padding: 50px 20px;
     }
     @include media("sm") {
-      padding: 40px 15px 320px;
+      padding: 40px 15px 300px;
     }
   }
 
@@ -944,4 +944,560 @@ main {
   }
 }
 
-// @include show(".price");
+// ** projects ** //
+.projects {
+  padding: 50px 0;
+
+  @include media("sm") {
+    padding: 25px 0;
+  }
+
+  .text-h2 {
+    margin-bottom: 50px;
+    width: 100%;
+    text-align: center;
+
+    @include media("sm") {
+      margin-bottom: 30px;
+      font-size: 24px;
+
+      br {
+        display: none;
+      }
+    }
+  }
+
+  &__swiper {
+    position: relative;
+    width: 100%;
+    --btn-offset: -120px;
+
+    @include media("3xl") {
+      --btn-offset: -100px;
+    }
+    @include media("2xl") {
+      --btn-offset: -20px;
+    }
+
+    .swiper {
+      width: 100%;
+
+      @include media("2xl") {
+        max-width: 85%;
+      }
+      @include media("sm") {
+        max-width: 100%;
+        overflow: visible;
+      }
+    }
+    .swiper-slide {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+
+      @include media("sm") {
+        width: 280px;
+      }
+    }
+
+    .swiper-slide img {
+      width: 100%;
+      border-radius: 15px;
+    }
+
+    .swiper-slide .flex-col {
+      padding: 0 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+
+      @include media("3xl") {
+        .text-primary {
+          font-size: 14px;
+        }
+      }
+      @include media("sm") {
+        gap: 5px;
+
+        .text-primary {
+          font-size: 12px;
+        }
+      }
+    }
+
+    .swiper-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 80px;
+      height: 80px;
+      font-size: 48px;
+      font-weight: 700;
+      background: #f8f8f8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: var(--transition-ease);
+      cursor: pointer;
+      user-select: none;
+
+      &:hover {
+        color: #fff;
+        background: var(--text-color);
+      }
+
+      @include media("3xl") {
+        width: 60px;
+        height: 60px;
+        font-size: 32px;
+      }
+
+      @include media("sm") {
+        display: none;
+      }
+
+      &.btn-prev {
+        left: var(--btn-offset);
+      }
+      &.btn-next {
+        right: var(--btn-offset);
+      }
+    }
+  }
+}
+
+// ** reviews ** //
+.reviews {
+  padding: 50px 0;
+
+  @include media("sm") {
+    padding: 25px 0;
+  }
+
+  .container {
+    position: relative;
+    padding-top: 60px;
+    padding-bottom: 60px;
+
+    @include media("sm") {
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+    }
+
+    &::before {
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% + 160px);
+      max-width: calc(100vw - 20px);
+      height: 100%;
+      background: #f7f7f7;
+      border-radius: 40px;
+      z-index: -1;
+
+      @include media("3xl") {
+        width: calc(100% + 80px);
+      }
+      @include media("sm") {
+        max-width: calc(100% - 25px);
+        height: calc(100% - 1010px);
+        border-radius: 24px;
+      }
+    }
+  }
+
+  .text-h2 {
+    width: 100%;
+    text-align: center;
+
+    @include media("sm") {
+      margin: 0 auto;
+      max-width: 90%;
+      font-size: 24px;
+    }
+  }
+
+  &__list {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 100px;
+
+    @include media("3xl") {
+      gap: 60px;
+    }
+    @include media("lg") {
+      padding: 0 20px;
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include media("sm") {
+      margin-top: 25px;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    iframe {
+      height: 600px;
+      width: 100%;
+      border-radius: 24px;
+
+      @include media("3xl") {
+        height: 500px;
+      }
+      @include media("sm") {
+        height: 400px;
+      }
+    }
+  }
+}
+
+// ** about ** //
+.about {
+  position: relative;
+  padding: 50px 0;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: calc(100% - 150px);
+    background: radial-gradient(
+        circle at 50% 50%,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0) 50%,
+        rgba(255, 255, 255, 1) 100%
+      ),
+      url("../img/about/bg.jpg");
+    background-size: cover;
+    background-position: top right;
+    background-repeat: no-repeat;
+    box-shadow: inset 0 0 80px 80px rgba(255, 255, 255, 1);
+
+    @include media("3xl") {
+      width: 45%;
+      height: calc(100% - 280px);
+      background-color: none;
+      box-shadow: inset 0 0 40px 40px rgba(255, 255, 255, 1);
+    }
+    @include media("lg") {
+      display: none;
+    }
+  }
+
+  @include media("sm") {
+    padding: 25px 0;
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .text-h2 {
+    @include media("sm") {
+      width: 100%;
+      text-align: center;
+
+      br {
+        display: none;
+      }
+    }
+  }
+
+  &__advantages {
+    margin: 30px 0;
+    padding: 25px 25px 40px;
+    width: fit-content;
+    background: #f8f8f8;
+    border-radius: 24px;
+    display: grid;
+    grid-template-columns: repeat(3, 280px);
+    gap: 40px;
+
+    @include media("3xl") {
+      padding: 20px 20px 30px;
+      grid-template-columns: repeat(3, 225px);
+    }
+    @include media("lg") {
+      width: 100%;
+      grid-template-columns: 1fr;
+    }
+    @include media("sm") {
+      padding: 20px 20px 50px;
+    }
+
+    &-item {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .text-h4 {
+      @include media("sm") {
+        font-size: 20px;
+
+        br {
+          display: none;
+        }
+      }
+    }
+
+    .text-gray {
+      color: #696969;
+      max-width: 480px;
+      font-size: 18px;
+      line-height: 1.25;
+
+      @include media("3xl") {
+        font-size: 14px;
+      }
+      @include media("md") {
+        max-width: 380px;
+      }
+    }
+  }
+
+  &__img {
+    position: absolute;
+    right: 50px;
+    bottom: 100px;
+    width: 385px;
+    pointer-events: none;
+
+    @include media("3xl") {
+      width: 320px;
+      bottom: 100px;
+
+      &::after {
+        height: 50px;
+      }
+    }
+    @include media("xl") {
+      width: 280px;
+    }
+    @include media("lg") {
+      position: relative;
+      right: 0;
+      bottom: 0;
+      padding: 20px;
+      height: 250px;
+      width: 100%;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 120px;
+      background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 1) 100%
+      );
+    }
+
+    img {
+      width: 100%;
+
+      @include media("lg") {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 250px;
+      }
+      @include media("sm") {
+        width: 220px;
+        height: 320px;
+        object-fit: cover;
+        object-position: top;
+      }
+    }
+
+    &-ceo {
+      position: absolute;
+      top: 70%;
+      left: 65%;
+      transform: translate(-50%, -50%);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+
+      @include media("lg") {
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: translate(0, 0);
+        color: var(--text-color);
+      }
+
+      @include media("sm") {
+        gap: 15px;
+
+        .text-h3 {
+          width: 30%;
+          font-size: 16px;
+        }
+
+        span {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+
+  &__contact {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+
+    &-content {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 30px;
+
+      @include media("lg") {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    .flex-row {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 10px;
+
+      @include media("sm") {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    &-socials {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 10px;
+
+      .text-h4 {
+        margin-right: 30px;
+
+        @include media("3xl") {
+          font-size: 16px;
+        }
+      }
+
+      a {
+        padding-bottom: 1.5px;
+        width: 80px;
+        height: 80px;
+        background: var(--green-dark);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        --icon-size: 30px;
+
+        &:last-child {
+          padding-bottom: 0;
+          padding-right: 1px;
+          background: var(--primary);
+          --icon-size: 30px;
+        }
+
+        @include media("3xl") {
+          width: 60px;
+          height: 60px;
+          --icon-size: 24px;
+
+          &:last-child {
+            --icon-size: 28px;
+          }
+        }
+      }
+    }
+  }
+
+  &__stats {
+    position: relative;
+    z-index: 2;
+    margin-top: 80px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+
+    @include media("3xl") {
+      gap: 20px;
+    }
+    @include media("lg") {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include media("sm") {
+      margin-top: 40px;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    &-item {
+      padding: 30px 30px 40px;
+      width: 100%;
+      background: #f8f8f8;
+      border-radius: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+
+      @include media("3xl") {
+        padding: 20px 20px 30px;
+        gap: 15px;
+      }
+    }
+
+    .text-h3 {
+      font-size: 32px;
+
+      @include media("3xl") {
+        font-size: 26px;
+      }
+      @include media("sm") {
+        font-size: 24px;
+      }
+    }
+
+    .text-gray {
+      color: #797979;
+      font-size: 18px;
+
+      @include media("3xl") {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+// @include show(".about");
