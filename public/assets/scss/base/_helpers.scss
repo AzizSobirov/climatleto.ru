@@ -87,7 +87,13 @@
 
 .text-h1 {
   font-size: 48px;
-  font-weight: 400;
+
+  @include media("3xl") {
+    font-size: 38px;
+  }
+  @include media("sm") {
+    font-size: 32px;
+  }
 }
 
 .text-h2 {

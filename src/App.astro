@@ -7,9 +7,11 @@ import "../public/assets/scss/app.scss";
 const version = Math.random().toString(16).slice(10);
 
 const styles: string[] = [
+  "./assets/css/swiper.min.css",
   "https://cdn.jsdelivr.net/npm/intl-tel-input@24.6.0/build/css/intlTelInput.css",
 ];
 const scripts: string[] = [
+  "./assets/js/swiper.min.js",
   "./assets/js/fancybox.min.js",
   `./assets/js/app.js?v=${version}`,
   "https://cdn.jsdelivr.net/npm/intl-tel-input@24.6.0/build/js/intlTelInput.min.js",
@@ -45,27 +47,29 @@ const { title } = Astro.props;
     <!-- <TheModal /> -->
     <slot name="footer" />
     <!-- The Scripts -->
-    {scripts.map((script) => <script src={script} />)}
+    {scripts.map((script) => <script src={script} is:inline />)}
     <script is:inline>
-      const input = document.querySelector("#phone");
-      window.intlTelInput(input, {
-        initialCountry: "auto",
-        strictMode: true,
-        separateDialCode: true,
-        geoIpLookup: function (success, failure) {
-          //   fetch("https://ipapi.co/json")
-          //     .then(function (res) {
-          //       return res.json();
-          //     })
-          //     .then(function (data) {
-          //       success(data.country_code);
-          //     })
-          //     .catch(function () {
-          success("ru");
-          //     });
-        },
-        loadUtilsOnInit:
-          "https://cdn.jsdelivr.net/npm/intl-tel-input@24.6.0/build/js/utils.js",
+      const telMasks = document.querySelectorAll(".phone-mask");
+      telMasks.forEach((item) => {
+        window.intlTelInput(item, {
+          initialCountry: "auto",
+          strictMode: true,
+          separateDialCode: true,
+          geoIpLookup: function (success, failure) {
+            //   fetch("https://ipapi.co/json")
+            //     .then(function (res) {
+            //       return res.json();
+            //     })
+            //     .then(function (data) {
+            //       success(data.country_code);
+            //     })
+            //     .catch(function () {
+            success("ru");
+            //     });
+          },
+          loadUtilsOnInit:
+            "https://cdn.jsdelivr.net/npm/intl-tel-input@24.6.0/build/js/utils.js",
+        });
       });
     </script>
   </body>

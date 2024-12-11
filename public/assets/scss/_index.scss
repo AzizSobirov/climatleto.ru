@@ -619,4 +619,329 @@ main {
   }
 }
 
-// @include show(".services");
+// ** brands ** //
+.brands {
+  padding: 50px 0;
+
+  @include media("sm") {
+    padding: 25px 0;
+  }
+
+  .text-h2 {
+    margin-bottom: 50px;
+    width: 100%;
+    text-align: center;
+
+    @include media("sm") {
+      margin-bottom: 30px;
+
+      br {
+        display: none;
+      }
+    }
+  }
+
+  &__swiper {
+    position: relative;
+    width: 100%;
+
+    .swiper {
+      width: 100%;
+      max-width: 75%;
+
+      @include media("sm") {
+        max-width: 100%;
+        overflow: visible;
+      }
+    }
+
+    .swiper-slide {
+      @include media("sm") {
+        width: 190px;
+      }
+    }
+
+    .swiper-slide img {
+      width: 100%;
+    }
+
+    .swiper-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 80px;
+      height: 80px;
+      font-size: 48px;
+      font-weight: 700;
+      background: #f8f8f8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: var(--transition-ease);
+      cursor: pointer;
+
+      &:hover {
+        color: #fff;
+        background: var(--text-color);
+      }
+
+      @include media("3xl") {
+        width: 60px;
+        height: 60px;
+        font-size: 32px;
+      }
+      @include media("sm") {
+        display: none;
+      }
+
+      &.btn-prev {
+        left: 0;
+      }
+
+      &.btn-next {
+        right: 0;
+      }
+    }
+  }
+}
+
+// ** price ** //
+.price {
+  position: relative;
+  padding: 80px 0;
+
+  @include media("sm") {
+    padding: 40px 0;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 500px;
+    height: 500px;
+    background: url("../img/serkul.png") center/cover no-repeat;
+    pointer-events: none;
+    z-index: 1;
+
+    @include media("3xl") {
+      width: 400px;
+      height: 400px;
+    }
+    @include media("lg") {
+      display: none;
+    }
+  }
+
+  .container {
+    position: relative;
+  }
+
+  .bg-img {
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% + 160px);
+    max-width: calc(100vw - 20px);
+    background-image: url("../img/price/bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 40px;
+    z-index: 1;
+    --position: top;
+
+    @include media("3xl") {
+      width: calc(100% + 80px);
+    }
+    @include media("sm") {
+      width: 100%;
+      background-image: url("../img/price/bg-mobile.jpg");
+      background-position: bottom;
+      border-radius: 24px;
+    }
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+    padding: 80px 0;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+
+    @include media("3xl") {
+      padding: 70px 0;
+    }
+    @include media("md") {
+      padding: 50px 20px;
+    }
+    @include media("sm") {
+      padding: 40px 15px 320px;
+    }
+  }
+
+  &__text {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+
+    @include media("sm") {
+      text-align: center;
+      gap: 20px;
+
+      .text-h1 {
+        width: 100%;
+      }
+
+      .text-h4 {
+        margin: 0 auto;
+        max-width: 80%;
+      }
+    }
+
+    .circle {
+      position: absolute;
+      top: 0;
+      right: -220px;
+      width: 180px;
+      height: 180px;
+      background: url("../img/price/round-img.jpg") center/cover no-repeat;
+      border-radius: 50%;
+      padding-top: 20px;
+      color: var(--primary);
+      text-align: center;
+      line-height: 1.25;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      @include media("3xl") {
+        width: 160px;
+        height: 160px;
+        font-size: 14px;
+      }
+      @include media("md") {
+        display: none;
+      }
+    }
+  }
+
+  &__form {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 15px;
+
+    @include media("lg") {
+      max-width: 100%;
+    }
+    @include media("sm") {
+      gap: 10px;
+    }
+
+    label,
+    input {
+      padding: 0 30px;
+      width: 100%;
+      max-width: 320px;
+      height: 85px;
+      color: var(--text-color);
+      font-size: 18px;
+      background: #fff;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+
+      @include media("3xl") {
+        padding: 0 25px;
+        height: 75px;
+        max-width: 280px;
+        font-size: 14px;
+      }
+      @include media("sm") {
+        max-width: 100%;
+      }
+    }
+
+    label svg {
+      @include media("3xl") {
+        width: 12px;
+        height: 12px;
+      }
+    }
+
+    select {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      height: 100%;
+      width: 100%;
+      text-indent: 1px;
+      text-overflow: "";
+    }
+
+    & > .iti {
+      padding-left: 20px;
+      color: var(--text-color);
+      width: 100%;
+      max-width: 320px;
+      background: #fff;
+      border-radius: 999px;
+
+      @include media("3xl") {
+        max-width: 280px;
+      }
+      @include media("sm") {
+        max-width: 100%;
+      }
+
+      button {
+        margin-left: 20px;
+      }
+    }
+
+    .btn {
+      padding: 0 !important;
+      height: 85px;
+      width: 100%;
+      max-width: 340px;
+      font-size: 20px;
+      font-weight: 700;
+
+      @include media("3xl") {
+        height: 75px;
+        max-width: 280px;
+        font-size: 16px;
+      }
+      @include media("sm") {
+        max-width: 100%;
+      }
+    }
+
+    .text-policy {
+      margin-top: 5px;
+      width: 100%;
+      text-align: left;
+      line-height: 1.5;
+
+      @include media("3xl") {
+        font-size: 14px;
+      }
+      @include media("sm") {
+        text-align: center;
+      }
+    }
+  }
+}
+
+// @include show(".price");

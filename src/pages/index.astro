@@ -1,6 +1,6 @@
 ---
 import App from "../App.astro";
-import { Section, Image, Icon, H1, H2, H3 } from "ui";
+import { Section, Image, Icon, H1, H2, H3, H4 } from "ui";
 ---
 
 <App title="Главная">
@@ -94,7 +94,7 @@ import { Section, Image, Icon, H1, H2, H3 } from "ui";
     </Section>
 
     <!-- Services -->
-    <Section name="services">
+    <Section name="services" id="services">
       <H2 class="font-semibold"
         >Команда специалистов готова выполнить <br /> работы любой сложности</H2
       >
@@ -215,8 +215,124 @@ import { Section, Image, Icon, H1, H2, H3 } from "ui";
 
         <form class="services__form-content">
           <input type="text" name="name" placeholder="Ваше имя" required />
-          <input type="tel" id="phone" />
+          <input type="tel" class="phone-mask" />
           <button class="btn variant-solid" type="submit"> Отправить </button>
+          <div class="text-policy">
+            Нажимая кнопку вы соглашаетесь с условиями
+            <span
+              class="text-primary font-semibold underline"
+              role="button"
+              tabindex="0"
+              aria-label="Политики конфиденциальности данных"
+              data-modal="policy"
+            >
+              Политики конфиденциальности данных
+            </span>
+          </div>
+        </form>
+      </div>
+    </Section>
+
+    <!-- Brands -->
+    <Section name="brands" id="brands">
+      <H2>
+        <span class="font-semibold">Ремонтируем и обслуживаем</span> любые марки
+        <br />
+        кондиционеров. Беремся за задачи
+        <span class="text-primary font-semibold"> любой сложности</span>
+      </H2>
+
+      <div class="brands__swiper">
+        <div class="swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <Image src="brands/lg.jpg" />
+            </div>
+            <div class="swiper-slide">
+              <Image src="brands/beko.jpg" />
+            </div>
+            <div class="swiper-slide">
+              <Image src="brands/yamaha.jpg" />
+            </div>
+            <div class="swiper-slide">
+              <Image src="brands/bosch.jpg" />
+            </div>
+            <div class="swiper-slide">
+              <Image src="brands/haier.jpg" />
+            </div>
+            <div class="swiper-slide">
+              <Image src="brands/pioneer.jpg" />
+            </div>
+            <div class="swiper-slide">
+              <Image src="brands/dantex.jpg" />
+            </div>
+            <div class="swiper-slide">
+              <Image src="brands/electrolux.jpg" />
+            </div>
+            <div class="swiper-slide">
+              <Image src="brands/general.jpg" />
+            </div>
+            <div class="swiper-slide">
+              <Image src="brands/ballu.jpg" />
+            </div>
+            <div class="swiper-slide">
+              <Image src="brands/chigo.jpg" />
+            </div>
+            <div class="swiper-slide">
+              <Image src="brands/daikin.jpg" />
+            </div>
+            <div class="swiper-slide">
+              <Image src="brands/general-climate.jpg" />
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-btn btn-prev">←</div>
+        <div class="swiper-btn btn-next">→</div>
+      </div>
+    </Section>
+
+    <!-- Price List -->
+    <Section name="price">
+      <div class="bg-img"></div>
+
+      <div class="price__content">
+        <div class="price__text">
+          <div class="circle">
+            Обновлен: <br />
+            13.04.2024
+          </div>
+          <H1>
+            <span class="font-semibold">
+              Скачайте <br />
+              <span class="text-primary">прайс-лист</span>
+            </span>
+            на все <br /> услуги в 1 клик
+          </H1>
+          <H4>Выберите куда вам удобнее отправить прайс?</H4>
+        </div>
+
+        <form class="price__form">
+          <label for="socials">
+            <select name="select" id="socials" required>
+              <option value="Получить в WhatsApp">Получить в WhatsApp</option>
+              <option value="Получить в Telegram">Получить в Telegram</option>
+              <option value="Получить в Viber">Получить в Viber</option>
+            </select>
+            <svg
+              width="15"
+              height="15"
+              viewBox="0 0 15 15"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M7.5 12L0 4H15L7.5 12Z" fill="black"></path>
+            </svg>
+          </label>
+          <input type="tel" class="phone-mask" required />
+          <button class="btn variant-solid" type="submit">
+            Получить прайс сейчас
+          </button>
           <div class="text-policy">
             Нажимая кнопку вы соглашаетесь с условиями
             <span

@@ -180,3 +180,27 @@ if (fancyboxTriggers) {
     });
   });
 }
+
+// brands swiper
+let swiperBrands = new Swiper(".brands .swiper", {
+  slidesPerView: "auto",
+  spaceBetween: 15,
+  loop: true,
+  autoplay: {
+    delay: 5000,
+  },
+  navigation: {
+    nextEl: ".brands .btn-next",
+    prevEl: ".brands .btn-prev",
+  },
+  breakpoints: {
+    641: {
+      slidesPerView: 3,
+      spaceBetween: 20,
+    },
+    1025: {
+      slidesPerView: 4,
+      spaceBetween: 20,
+    },
+  },
+});
