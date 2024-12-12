@@ -23,6 +23,30 @@
     }
   }
 
+  &.variant-outline {
+    padding: 25px 80px;
+    color: var(--primary);
+    font-size: 18px;
+    background: transparent;
+    border: 1px solid var(--primary);
+    border-radius: 999px;
+
+    &:hover {
+      color: #fff;
+      background: var(--primary-dark);
+    }
+
+    @include media("lg") {
+      padding: 20px 60px;
+      font-size: 16px;
+    }
+    @include media("sm") {
+      padding: 20px 50px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+  }
+
   &.size-small {
     padding: 20px 35px;
     font-size: 16px;

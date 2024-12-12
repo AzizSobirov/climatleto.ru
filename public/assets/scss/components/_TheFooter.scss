@@ -1,8 +1,214 @@
 /* Styles for the TheFooter component */
 .footer {
-  padding: 100px 0 60px;
+  color: #fff;
+  background: #2f2f2f;
 
-  @include media("xl") {
-    padding: 50px 0 110px;
+  .container {
+    @include media("1025px", min-width) {
+      --content-width: 1180px;
+    }
+  }
+
+  &__top {
+    padding: 50px 0;
+
+    @include media("sm") {
+      padding: 40px 0;
+    }
+
+    .container {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 60px;
+
+      @include media("lg") {
+        text-align: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+    }
+
+    ul {
+      font-size: 18px;
+      opacity: 0.8;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+
+      @include media("lg") {
+        display: none;
+      }
+    }
+  }
+
+  &__logo {
+    font-size: 32px;
+    font-weight: 600;
+
+    @include media("xs") {
+      font-size: 28px;
+    }
+  }
+
+  &__contacts {
+    position: relative;
+    margin-left: auto;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 20px;
+
+    @include media("lg") {
+      margin-top: 20px;
+      width: 100%;
+      align-items: center;
+    }
+  }
+
+  &__contact {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+
+    @include media("lg") {
+      width: 100%;
+      align-items: center;
+    }
+
+    span {
+      position: relative;
+      padding-left: 20px;
+      font-size: 20px;
+
+      @include media("3xl") {
+        font-size: 18px;
+      }
+      @include media("sm") {
+        padding-left: 15px;
+        font-size: 14px;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: 10px;
+        height: 10px;
+        background: var(--green);
+        border-radius: 50%;
+
+        @include media("sm") {
+          width: 6px;
+          height: 6px;
+        }
+      }
+    }
+
+    a {
+      position: relative;
+      font-size: 32px;
+      font-weight: 600;
+
+      @include media("sm") {
+        font-size: 24px;
+      }
+    }
+  }
+
+  &__socials {
+    position: absolute;
+    top: 0;
+    left: -240px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 20px;
+
+    @include media("xl") {
+      left: -180px;
+    }
+    @include media("lg") {
+      position: relative;
+      left: 0;
+      width: 100%;
+      justify-content: center;
+    }
+    @include media("sm") {
+      margin-bottom: 10px;
+      gap: 15px;
+    }
+
+    a {
+      padding-bottom: 1.5px;
+      width: 80px;
+      height: 80px;
+      background: var(--green-dark);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      --icon-size: 30px;
+
+      &:last-child {
+        padding-bottom: 0;
+        padding-right: 1px;
+        background: var(--primary);
+        --icon-size: 32px;
+      }
+
+      @include media("3xl") {
+        width: 60px;
+        height: 60px;
+        --icon-size: 24px;
+
+        &:last-child {
+          --icon-size: 28px;
+        }
+      }
+    }
+  }
+
+  &__bottom {
+    padding: 20px 0 60px;
+    width: 100%;
+    border-top: 1px solid #ffffff30;
+
+    .container {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 70px;
+
+      @include media("lg") {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        text-align: center;
+      }
+    }
+
+    span {
+      opacity: 0.3;
+
+      @include media("xs") {
+        font-size: 14px;
+      }
+
+      &:last-child {
+        margin-left: auto;
+
+        @include media("lg") {
+          margin-left: 0;
+        }
+      }
+    }
   }
 }

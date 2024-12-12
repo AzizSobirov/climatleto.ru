@@ -3,5 +3,60 @@ import { H2, Icon, Image } from "ui";
 ---
 
 <footer class="footer">
-  <div class="container"></div>
+  <div class="footer__top">
+    <div class="container">
+      <a href="/" class="footer__logo">ClimatLeto</a>
+      <ul class="menu">
+        <li class="menu-item"><a href="#price">Скачать прайс-лист</a></li>
+        <li class="menu-item"><a href="#services">Услуги</a></li>
+        <li class="menu-item"><a href="#calculate">Рассчет стоимости</a></li>
+        <li class="menu-item"><a href="#contacts">Контакты</a></li>
+      </ul>
+      <div class="footer__contacts">
+        <div class="footer__contact">
+          <span>Сейчас работаем, звоните</span>
+          <a href="tel:+79206076602" title="phone">+7 (920) 607 66-02</a>
+        </div>
+        <div class="footer__socials">
+          <a href="https://wa.me/+79206076602" title="whatsapp">
+            <div class="icon">
+              <img
+                src="./assets/img/icons/whatsapp.svg"
+                alt=""
+                loading="lazy"
+              />
+            </div>
+          </a>
+          <a href="https://t.me/+79206076602" title="telegram">
+            <div class="icon">
+              <img
+                src="./assets/img/icons/telegram.svg"
+                alt=""
+                loading="lazy"
+              />
+            </div>
+          </a>
+        </div>
+        <a href="#calculate" class="btn variant-outline"> Рассчет стоимости </a>
+      </div>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <div class="container">
+      <span>Все права защищены</span>
+      <span>
+        ИНН: 320304730850 <br /> Рощин Алексей Александрович <br />
+        Фактический адрес: Москва
+      </span>
+      <span
+        class="underline"
+        role="button"
+        tabindex="0"
+        aria-label="Политики конфиденциальности данных"
+        data-modal="policy"
+      >
+        Политика конфиденциальности
+      </span>
+    </div>
+  </div>
 </footer>
