@@ -19,7 +19,7 @@
     background: rgba($color: #000000, $alpha: 0.5);
 
     @include media("sm") {
-      background: #000;
+      background: #00000090;
     }
   }
 
@@ -225,7 +225,7 @@
     @include media("sm") {
       margin-top: auto;
       padding: 20px;
-      height: calc(100% - 50px);
+      height: 20vh;
     }
 
     .modal__form {

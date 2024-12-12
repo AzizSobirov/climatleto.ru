@@ -2139,6 +2139,10 @@ main {
         width: 100%;
         font-size: 26px;
         text-align: center;
+
+        br{
+          display: none;
+        }
       }
 
       .text-h3 {
