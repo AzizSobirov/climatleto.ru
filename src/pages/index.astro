@@ -88,9 +88,9 @@ import { Section, Image, Icon, H1, H2, H3, H4 } from "ui";
         <br />
         для вашего кондиционера за 60 секунд
       </H2>
-      <iframe
+      <!-- <iframe
         src="//quiz.marquiz.ru/65e34a1cb1c84f0026ec36d1?cookies=%7B%22_ym_uid%22%3A%221733549456595564081%22%7D&href=https%3A%2F%2Fclimatleto.ru%2F&mode=inline&referrer=https%3A%2F%2Fclimatleto.ru%2F"
-      ></iframe>
+      ></iframe> -->
     </Section>
 
     <!-- Services -->
@@ -740,8 +740,8 @@ import { Section, Image, Icon, H1, H2, H3, H4 } from "ui";
       <div class="agreement__text">
         <H2 class="font-semibold">
           Работаем по
-          <span class="text-primary">простому и <br> понятному договору</span>
-          на <br> одном листе
+          <span class="text-primary">простому и <br /> понятному договору</span>
+          на <br /> одном листе
         </H2>
         <ul class="agreement__list">
           <li class="agreement__list-item">
@@ -764,6 +764,116 @@ import { Section, Image, Icon, H1, H2, H3, H4 } from "ui";
       <div class="agreement__img">
         <Image src="agreement.png" />
       </div>
+    </Section>
+
+    <!-- Parts -->
+    <Section name="parts">
+      <div class="parts__content">
+        <H2 class="font-semibold">
+          <span class="text-primary"> Собственный склад запчастей.</span> Запчасти
+          для кондиционеров любых марок в наличии
+        </H2>
+        <p class="text-h4">
+          Наши специалисты готовы привезти необходимые компоненты прямо к вам и
+          произвести замену быстро и квалифицированно. Обеспечиваем
+          бесперебойную работу вашего оборудования без лишнего ожидания!
+        </p>
+        <div class="parts__calculate">
+          <div
+            class="btn variant-solid"
+            role="button"
+            tabindex="0"
+            aria-label="Рассчитать стоимость"
+          >
+            Рассчитать стоимость
+          </div>
+          <div class="text-h4 text-gray">
+            После расчета получите - <br />
+            <span class="font-semibold"
+              >скидку на услуги <span class="text-primary"> 10%</span></span
+            >
+          </div>
+        </div>
+      </div>
+    </Section>
+
+    <!-- Steps -->
+    <Section name="steps">
+      <div class="bg-img"></div>
+      <div class="steps__content">
+        <H2 class="font-semibold">
+          4 шага как заказать ремонт или <br /> обслуживание кондиционера
+        </H2>
+        <div class="steps__list">
+          <div class="steps__item">
+            <div class="steps__item-step">1 шаг</div>
+            <H3>
+              Получение заявки, мастер связывается по телефону и
+              <span class="font-semibold">
+                приезжает на бесплатную диагностику в день обращения</span
+              >
+            </H3>
+          </div>
+          <div class="steps__item">
+            <div class="steps__item-step">2 шаг</div>
+            <H3 class="font-semibold">
+              Мастер проводит диагностику, устанавливает степень поломки
+            </H3>
+            <p class="text-gray">
+              Фиксируем все услуги. Гарантируем сопровождения полного спектра
+              услуг по договору
+            </p>
+          </div>
+          <div class="steps__item">
+            <div class="steps__item-step">3 шаг</div>
+            <H3 class="font-semibold"> Мастер приступает к работам </H3>
+            <ul class="text-gray">
+              <li>Снимаем обувь на входе</li>
+              <li>Ремонтируем чисто, без пыли и грязи</li>
+              <li>Оплачиваете после ремонта</li>
+              <li>Скидка -10% через сайт пенсионерам</li>
+            </ul>
+          </div>
+          <div class="steps__item">
+            <div class="steps__item-step">4 шаг</div>
+            <div class="flex-col">
+              <H4> Звоните нам </H4>
+              <a class="text-h3 font-semibold" href="tel:+79206076602">
+                +7 (920) 607 66-02
+              </a>
+            </div>
+
+            <ul>
+              <li>Сейчас работаем, звоните</li>
+            </ul>
+
+            <form class="steps__form">
+              <H4>Или оставьте заявку</H4>
+              <input type="tel" class="phone-mask" required />
+              <button class="btn variant-solid size-small" type="submit">
+                Оставить заявку
+              </button>
+              <div class="text-policy">
+                Нажимая на кнопку вы <br /> соглашаетесь с правилами <br />
+                <span
+                  class="text-primary font-semibold underline"
+                  role="button"
+                  tabindex="0"
+                  aria-label="Политики конфиденциальности данных"
+                  data-modal="policy"
+                >
+                  политики конфиденциальности
+                </span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </Section>
+
+    <!-- Discounts -->
+    <Section name="discounts">
+      .discounts
     </Section>
   </main>
 </App>
