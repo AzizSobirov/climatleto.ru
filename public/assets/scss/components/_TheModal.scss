@@ -16,143 +16,247 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba($color: #000000, $alpha: 0.4);
+    background: rgba($color: #000000, $alpha: 0.5);
+
+    @include media("sm") {
+      background: #000;
+    }
   }
 
   &__close {
     position: absolute;
     top: 25px;
     right: 25px;
-    width: 28px;
-    height: 28px;
+    width: 24px;
+    height: 24px;
+    background: url("../img/icons/close.svg") center/contain no-repeat;
     cursor: pointer;
     z-index: 2;
 
-    svg {
-      width: 100%;
-      height: 100%;
-    }
-
     @include media("sm") {
-      top: 15px;
-      right: 15px;
-      width: 20px;
-      height: 20px;
+      top: 17px;
+      right: 20px;
+      width: 16px;
+      height: 16px;
     }
   }
 
   &__content {
-    position: relative;
-    color: #fff;
-    background: var(--text-color);
     transition: var(--transition-bezier);
-    transform: scale(0.85);
+    transform: scale(0.85) translateY(20%);
     opacity: 0;
     z-index: 2;
     display: none;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 70px;
-
-    @include media("lg") {
-      padding: 40px;
-    }
-    @include media("xs") {
-      padding: 30px;
-    }
   }
 
-  &__img {
-    min-width: 345px;
-    width: 345px;
-    height: 100%;
-
-    @include media("lg") {
-      display: none;
-    }
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  }
-
-  &__form {
+  .variant-form {
+    padding: 40px 45px;
     width: 100%;
-    max-width: 660px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 30px;
+    max-width: 560px;
+    background: #fff;
 
-    @include media("1380px") {
-      max-width: 420px;
-    }
-    @include media("lg") {
-      max-width: 100%;
+    @include media("sm") {
+      margin-top: auto;
+      padding: 20px;
+      height: calc(100% - 50px);
     }
 
-    form {
-      margin-top: 8px;
+    .modal__form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+
+      @include media("sm") {
+        gap: 10px;
+      }
+
+      &-title {
+        font-size: 36px;
+        font-weight: 600;
+        text-align: center;
+
+        @include media("sm") {
+          font-size: 28px;
+        }
+      }
+
+      &-desc {
+        font-size: 16px;
+        font-weight: 600;
+        text-align: center;
+
+        @include media("sm") {
+          font-size: 12px;
+        }
+      }
+
+      &-policy {
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.35;
+        text-align: left;
+        max-height: 70vh;
+        overflow: auto;
+
+        @include media("sm") {
+          font-size: 12px;
+        }
+      }
+    }
+
+    .form {
       width: 100%;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       gap: 20px;
-    }
 
-    &-action {
-      margin-top: 5px;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      gap: 25px;
-
-      @include media("xs") {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 15px;
-      }
-
-      .btn {
-        border-color: #fff;
-
-        &:hover {
-          color: var(--text-color);
-          background: #fff;
-        }
-      }
-
-      & > div {
-        font-size: 10px;
+      @include media("sm") {
+        margin-top: 5px;
+        gap: 10px;
       }
     }
 
-    input,
-    textarea {
-      padding-bottom: 10px;
+    .form-group {
       width: 100%;
-      font-size: 14px;
-      border-bottom: 1px solid #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
 
-      &::placeholder {
-        color: #9e9e9e;
+    input {
+      padding: 15px 0;
+      width: 100%;
+    }
+
+    .form-group > .iti {
+      margin-top: 10px;
+      padding-left: 10px;
+      width: 100%;
+      font-size: 16px;
+      border: 1px solid #c9c9c9;
+      border-radius: 4px;
+
+      button {
+        margin-left: 10px;
       }
     }
 
-    textarea {
-      min-height: 45px;
-      resize: x;
+    .form-group-msg {
+      color: #f95d51;
+      font-size: 13px;
+      font-weight: 600;
+      display: none;
+    }
+
+    .form-group-alert {
+      padding: 20px;
+      width: 100%;
+      color: #fff;
+      font-size: 20px;
+      line-height: 1.55;
+      text-align: center;
+      background: #f95d51;
+      display: none;
+
+      @include media("sm") {
+        margin-top: 10px;
+        font-size: 16px;
+      }
+    }
+
+    .form-group-success {
+      margin-top: 10px;
+      padding: 20px;
+      width: 100%;
+      color: #fff;
+      font-size: 20px;
+      line-height: 1.55;
+      text-align: center;
+      background: #22c55e;
+      display: none;
+
+      @include media("sm") {
+        font-size: 16px;
+      }
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      height: 54px;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      background: var(--primary);
+      border-radius: 4px;
+      transition: var(--transition-ease);
+
+      &:hover {
+        color: #fff;
+        background: #111;
+      }
+
+      @include media("sm") {
+        margin: 15px 0 10px;
+        height: 50px;
+      }
+    }
+
+    .form-group-desc {
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.55;
+      text-align: center;
+
+      @include media("sm") {
+        font-size: 12px;
+      }
     }
   }
 
-  &__success {
+  .variant-success {
+    padding: 40px 45px;
     width: 100%;
-    max-width: 660px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 30px;
+    max-width: 560px;
+    background: #fff;
+
+    @include media("sm") {
+      margin-top: auto;
+      padding: 20px;
+      height: calc(100% - 50px);
+    }
+
+    .modal__form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+
+      @include media("sm") {
+        gap: 10px;
+      }
+
+      &-title {
+        font-size: 36px;
+        font-weight: 600;
+        text-align: center;
+
+        @include media("sm") {
+          font-size: 28px;
+        }
+      }
+
+      &-desc {
+        font-size: 16px;
+        font-weight: 600;
+        text-align: center;
+
+        @include media("sm") {
+          font-size: 12px;
+        }
+      }
+    }
   }
 }

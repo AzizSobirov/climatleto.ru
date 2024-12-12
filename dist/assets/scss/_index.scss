@@ -470,7 +470,8 @@ main {
       gap: 30px;
     }
     @include media("sm") {
-      padding: 30px 15px;
+      padding: 30px 20px;
+      min-width: calc(100% + 20px);
       border-radius: 24px;
     }
 
@@ -541,6 +542,16 @@ main {
         font-size: 14px;
         line-height: 1.2;
         --icon-size: 30px;
+
+        span {
+          &::first-letter {
+            text-transform: uppercase;
+          }
+
+          & > span {
+            display: none;
+          }
+        }
       }
     }
 

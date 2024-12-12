@@ -2,8 +2,16 @@
 const modal = {
   el: document.querySelector(".modal"),
   blocks: document.querySelectorAll(".modal__content"),
-  open: function (name, animation = true) {
+  active: null,
+  open: function (name, data, animation = true) {
     const target = this.el.querySelector(`[data-root=${name}]`);
+    const title = target.querySelector("[data-title]");
+
+    this.active = name;
+
+    if (title && data) {
+      title.innerText = data;
+    }
 
     this.el.classList.add("active");
     this.el.style.display = "flex";
@@ -12,18 +20,18 @@ const modal = {
     if (animation) {
       setTimeout(() => {
         target.style.opacity = 1;
-        target.style.transform = "scale(1)";
+        target.style.transform = "scale(1) translateY(0)";
       }, 50);
     } else {
       target.style.opacity = 1;
-      target.style.transform = "scale(1)";
+      target.style.transform = "scale(1) translateY(0)";
     }
   },
   close: function (name, parent = true) {
     if (!name) {
       this.blocks.forEach((block) => {
         block.style.opacity = 0;
-        block.style.transform = "scale(0.85)";
+        block.style.transform = "scale(0.85) translateY(20%)";
 
         setTimeout(() => {
           block.style.display = "none";
@@ -32,7 +40,7 @@ const modal = {
     } else {
       const target = this.el.querySelector(`[data-root=${name}]`);
       target.style.opacity = 0;
-      target.style.transform = "scale(0.85)";
+      target.style.transform = "scale(0.85) translateY(20%)";
 
       if (!parent) {
         target.style.display = "none";
@@ -56,8 +64,14 @@ const modalTriggers = document.querySelectorAll("[data-modal]");
 modalTriggers.forEach((trigger) => {
   trigger.addEventListener("click", () => {
     const name = trigger.dataset.modal;
+
     if (name !== "close") {
-      modal.open(name);
+      if (modal.el.classList.contains("active")) {
+        modal.close(modal.active, false);
+        modal.open(name, null, false);
+      } else {
+        modal.open(name);
+      }
     } else {
       modal.close(null, true);
     }
@@ -122,75 +136,96 @@ getAccordionParents.forEach((parent) => {
   });
 });
 
-// phone mask
-const phoneMasks = document.querySelectorAll("input[name='phone']");
-phoneMasks.forEach((input) => {
-  let keyCode;
-  function mask(event) {
-    event.keyCode && (keyCode = event.keyCode);
-    let pos = this.selectionStart;
-    if (pos < 3) event.preventDefault();
-    let matrix = "+7 (___) ___-__-__",
-      i = 0,
-      def = matrix.replace(/\D/g, ""),
-      val = this.value.replace(/\D/g, ""),
-      newValue = matrix.replace(/[_\d]/g, function (a) {
-        return i < val.length ? val.charAt(i++) || def.charAt(i) : a;
-      });
-    i = newValue.indexOf("_");
-    if (i != -1) {
-      i < 5 && (i = 3);
-      newValue = newValue.slice(0, i);
-    }
-    let reg = matrix
-      .substr(0, this.value.length)
-      .replace(/_+/g, function (a) {
-        return "\\d{1," + a.length + "}";
-      })
-      .replace(/[+()]/g, "\\$&");
-    reg = new RegExp("^" + reg + "$");
-    if (
-      !reg.test(this.value) ||
-      this.value.length < 5 ||
-      (keyCode > 47 && keyCode < 58)
-    )
-      this.value = newValue;
-    if (event.type == "blur" && this.value.length < 5) this.value = "";
-
-    if (this.value.length == 18 || this.value.length == 0) {
-      input.dataset.numbervalid = "true";
-    } else {
-      input.dataset.numbervalid = "false";
-    }
-  }
-
-  input.addEventListener("input", mask, false);
-  input.addEventListener("focus", mask, false);
-  input.addEventListener("blur", mask, false);
-  input.addEventListener("keydown", mask, false);
-});
-
-const forms = document.querySelectorAll("form");
-forms.forEach((form) => {
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    successSend();
-  });
-});
-
-function successSend() {
-  const modalEl = document.querySelector(".modal");
-  if (modalEl.classList.contains("active")) {
-    modal.close("form", false);
-    modal.open("success", false);
+function successSend(alertSuccess, form) {
+  if (alertSuccess) {
+    alertSuccess.style.display = "flex";
   } else {
     modal.open("success");
   }
 
   setTimeout(() => {
-    modal.close("success");
+    modal.close();
+    setTimeout(() => {
+      if (alertSuccess) {
+        alertSuccess.style.display = "none";
+      }
+      form.reset();
+    }, 350);
   }, 3000);
 }
+
+const forms = document.querySelectorAll("form");
+forms.forEach((form) => {
+  form.addEventListener("submit", (e) => {
+    e.preventDefault(); // Prevent form submission
+
+    const requiredFields = form.querySelectorAll("[data-validate]");
+    const alertBox = form.querySelector(".form-group-alert");
+    const alertSuccess = form.querySelector(".form-group-success");
+    let hasError = false;
+
+    requiredFields.forEach((field) => {
+      const { dataset } = field;
+      const { validate, required } = dataset;
+      const isRequired = required === "true";
+      let value = field.value;
+
+      const validation = validateField(validate, value, isRequired, field);
+      const errorElement =
+        field.parentElement.parentElement.querySelector(".form-group-msg");
+
+      if (validation.status === 400) {
+        errorElement.textContent = validation.msg;
+        errorElement.style.display = "block";
+        field.classList.add("error");
+        hasError = true;
+        if (alertBox) {
+          alertBox.textContent = validation.msg;
+          alertBox.style.display = "block";
+        }
+      } else {
+        errorElement.style.display = "none";
+        field.classList.remove("error");
+        if (!hasError && alertBox) {
+          alertBox.textContent = "";
+          alertBox.style.display = "none";
+        }
+      }
+    });
+
+    if (!hasError) {
+      successSend(alertSuccess, form);
+    }
+  });
+
+  const validateField = (type, value, required, field) => {
+    if (required && !value) {
+      return {
+        status: 400,
+        msg: "Пожалуйста, заполните все обязательные поля",
+      };
+    }
+
+    if (type === "name") {
+      const namePattern = /^[A-Za-zА-Яа-яёЁ\s]+$/; // Name can include letters and spaces only
+      if (!namePattern.test(value)) {
+        return {
+          status: 400,
+          msg: "Укажите, пожалуйста, имя",
+        };
+      }
+    } else if (type === "phone") {
+      if (value.length < 9) {
+        return {
+          status: 400,
+          msg: "Номер телефона должен содержать не более 9 цифр",
+        };
+      }
+    }
+
+    return { status: 200, msg: "" };
+  };
+});
 
 // Initialize the fancybox
 const fancyboxTriggers = Array.from(
