@@ -1,0 +1,358 @@
+/* Styles for the TheHeader component */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  transition: var(--transition-ease);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  &__content {
+    padding: 15px 0;
+    width: 100%;
+    background: #fff;
+
+    @include media("lg") {
+      background: #97979730;
+      backdrop-filter: blur(20px);
+    }
+
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 64px;
+
+      @include media("3xl") {
+        gap: 50px;
+      }
+      @include media("lg") {
+        gap: 30px;
+      }
+      @include media("sm") {
+        gap: 20px;
+      }
+    }
+
+    .btn {
+      @include media("lg") {
+        display: none;
+      }
+    }
+  }
+
+  &__logo {
+    font-size: 20px;
+    font-weight: 600;
+
+    @include media("lg") {
+      font-size: 18px;
+    }
+    @include media("sm") {
+      order: -2;
+    }
+    @include media("xs") {
+      display: none;
+    }
+  }
+
+  &__address {
+    margin-left: auto;
+    margin-right: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5px;
+    --icon-size: 34px;
+
+    @include media("lg") {
+      margin-right: 0;
+      font-size: 14px;
+      --icon-size: 30px;
+    }
+    @include media("md") {
+      display: none;
+    }
+  }
+
+  &__contact {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+
+    @include media("md") {
+      margin-left: auto;
+      gap: 5px;
+    }
+    @include media("sm") {
+      margin-left: unset;
+    }
+    @include media("xs") {
+      margin-left: auto;
+      gap: 4px;
+    }
+
+    span {
+      position: relative;
+      margin-left: 28px;
+      padding-left: 12px;
+
+      @include media("3xl") {
+        font-size: 13px;
+      }
+      @include media("lg") {
+        margin-left: 20px;
+        font-size: 12px;
+      }
+      @include media("sm") {
+        margin-left: 0;
+        font-size: 10px;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: 5px;
+        height: 5px;
+        background: var(--green);
+        border-radius: 50%;
+      }
+    }
+
+    a {
+      position: relative;
+      padding-left: 30px;
+      font-size: 24px;
+      font-weight: 600;
+      background: url("../img/icons/phone.svg") left center no-repeat;
+      background-size: 18px 18px;
+
+      @include media("3xl") {
+        padding-left: 25px;
+        font-size: 20px;
+        background-size: 16px 16px;
+      }
+      @include media("lg") {
+        padding-left: 22px;
+        font-size: 18px;
+        background-size: 14px 14px;
+      }
+      @include media("sm") {
+        padding-left: 0;
+        font-size: 16px;
+        background-image: none;
+        background-size: 12px 12px;
+      }
+    }
+  }
+
+  &__socials {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+
+    @include media("sm") {
+      margin-left: auto;
+      order: -1;
+    }
+    @include media("xs") {
+      margin-left: unset;
+      gap: 5px;
+    }
+    @include media("xxs") {
+      display: none;
+    }
+
+    a {
+      padding-bottom: 1.5px;
+      width: 60px;
+      height: 60px;
+      background: var(--green-dark);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      --icon-size: 24px;
+
+      &:last-child {
+        padding-bottom: 0;
+        padding-right: 1px;
+        background: var(--primary);
+        --icon-size: 30px;
+      }
+
+      @include media("3xl") {
+        width: 50px;
+        height: 50px;
+        --icon-size: 22px;
+
+        &:last-child {
+          --icon-size: 28px;
+        }
+      }
+      @include media("lg") {
+        width: 40px;
+        height: 40px;
+        --icon-size: 18px;
+
+        &:last-child {
+          --icon-size: 24px;
+        }
+      }
+      @include media("xs") {
+        width: 36px;
+        height: 36px;
+        --icon-size: 16px;
+
+        &:last-child {
+          --icon-size: 22px;
+        }
+      }
+    }
+  }
+
+  &__burger {
+    padding: 4px 12px;
+    display: none;
+    background: #fff;
+    border-radius: 999px;
+    --icon-size: 28px;
+
+    @include media("lg") {
+      display: block;
+    }
+  }
+
+  &__menu {
+    padding: 25px 0;
+    width: 100%;
+    background: #97979710;
+    backdrop-filter: blur(20px);
+
+    @include media("lg") {
+      position: fixed;
+      top: 0;
+      right: 0;
+      transform: translateX(100%);
+      padding: 0;
+      width: 100%;
+      max-width: 100%;
+      height: 100vh;
+      background: transparent;
+      backdrop-filter: none;
+      transition: var(--transition-bezier);
+
+      &.active {
+        transform: translateX(0);
+      }
+    }
+
+    &-overlay {
+      display: none;
+
+      @include media("lg") {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        display: block;
+      }
+    }
+
+    &-close {
+      display: none;
+
+      @include media("lg") {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        z-index: 2;
+        display: block;
+      }
+      @include media("xs") {
+        --icon-size: 18px;
+      }
+    }
+
+    .container {
+      @include media("lg") {
+        position: relative;
+        margin-left: auto;
+        margin-right: 0;
+        padding: 40px 30px;
+        height: 100%;
+        max-width: 380px;
+        background: #111;
+      }
+      @include media("xs") {
+        margin: 0;
+        padding: 30px 20px;
+        max-width: 100%;
+      }
+    }
+
+    ul {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+
+      @include media("lg") {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 25px;
+      }
+    }
+
+    li {
+      color: var(--text-gray);
+      font-size: 16px;
+      text-transform: uppercase;
+
+      @include media("3xl") {
+        font-size: 14px;
+      }
+      @include media("lg") {
+        color: #fff;
+        font-size: 20px;
+      }
+
+      &:nth-child(3) {
+        position: relative;
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: -8px;
+          right: -10px;
+          width: 8px;
+          height: 8px;
+          background: red;
+          border-radius: 50%;
+          animation: pulse-shadow 1.5s infinite;
+        }
+      }
+    }
+  }
+}
+
+@keyframes pulse-shadow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.8);
+  }
+  50% {
+    box-shadow: 0 0 5px 5px rgba(255, 0, 0, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
+  }
+}

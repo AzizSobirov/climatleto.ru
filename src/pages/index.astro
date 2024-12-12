@@ -293,7 +293,7 @@ import { Section, Image, Icon, H1, H2, H3, H4 } from "ui";
     </Section>
 
     <!-- Price List -->
-    <Section name="price">
+    <Section name="price" id="price">
       <div class="bg-img"></div>
 
       <div class="price__content">
@@ -586,6 +586,158 @@ import { Section, Image, Icon, H1, H2, H3, H4 } from "ui";
           <p class="text-gray">в команде</p>
         </div>
       </div>
+    </Section>
+
+    <!-- Team -->
+    <Section name="team">
+      <H2>
+        Мы собирали команду сертифицированных специалистов на протяжении 4 лет, <span
+          class="font-semibold"
+        >
+          опыт каждого из них - <span class="text-primary">от 5 лет</span></span
+        >
+      </H2>
+
+      <div class="team__content">
+        <div class="team__swiper">
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <Image src="team/1.jpg" />
+                <div class="flex-col">
+                  <H4 class="font-semibold">Ефременко Дмитрий Александрович</H4>
+                  <p class="text-h4">Главный инженер</p>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <Image src="team/2.jpg" />
+                <div class="flex-col">
+                  <H4 class="font-semibold">Родин Богдан Валерьевич</H4>
+                  <p class="text-h4">Электрик</p>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <Image src="team/3.jpg" />
+                <div class="flex-col">
+                  <H4 class="font-semibold">Юдин Максим Иванович</H4>
+                  <p class="text-h4">Инженер</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <form class="team__form">
+          <H3 class="font-semibold"
+            >Оставьте заявку на консультацию от <br /> специалиста из команды</H3
+          >
+          <H4
+            >Рассчитаем стоимость обслуживания по телефону <span
+              class="font-semibold text-primary">за 30 секунд</span
+            ></H4
+          >
+          <div class="team__form-group">
+            <input type="tel" class="phone-mask" required />
+            <button class="btn variant-solid" type="submit"> Отправить </button>
+          </div>
+          <div class="text-policy">
+            Нажимая кнопку вы соглашаетесь с условиями
+            <span
+              class="text-primary font-semibold underline"
+              role="button"
+              tabindex="0"
+              aria-label="Политики конфиденциальности данных"
+              data-modal="policy"
+            >
+              Политики конфиденциальности данных
+            </span>
+          </div>
+        </form>
+      </div>
+    </Section>
+
+    <!-- Application -->
+    <Section name="application">
+      <div class="application__content">
+        <div class="application__text">
+          <H2 class="font-semibold">
+            Оставьте заявку на <br /> бесплатный выезд <br /> специалиста</H2
+          >
+          <p class="text-h4">
+            <span class="font-semibold"
+              >Сразу помогу определить причины и расценки на ремонт и
+              обслуживание кондиционеров,</span
+            > с учетом запасных частей
+          </p>
+        </div>
+
+        <div class="application__call">
+          <H4>Позвоните</H4>
+          <a class="text-h2 font-semibold text-primary" href="tel:+79206076602"
+            >+7 (920) 607 66-02</a
+          >
+        </div>
+
+        <div class="application__ceo">
+          <div class="text-h3 font-semibold">Ефременко Дмитрий</div>
+          <div class="text-h4">Главный инженер</div>
+        </div>
+
+        <form class="application__form">
+          <H3 class="font-semibold"
+            >Оставьте заявку и я <br /> перезвоню в течение <br /> 5 минут</H3
+          >
+          <H4
+            >Рассчитаем стоимость <br /> обслуживания по телефону <br />
+            <span class="font-semibold text-primary">за 30 секунд</span></H4
+          >
+          <div class="application__form-group">
+            <input type="tel" class="phone-mask" required />
+            <button class="btn variant-solid" type="submit"> Отправить </button>
+          </div>
+          <div class="text-policy">
+            Нажимая кнопку вы соглашаетесь с условиями
+            <span
+              class="text-primary font-semibold underline"
+              role="button"
+              tabindex="0"
+              aria-label="Политики конфиденциальности данных"
+              data-modal="policy"
+            >
+              Политики конфиденциальности данных
+            </span>
+          </div>
+        </form>
+
+        <div class="application__socials">
+          <div class="text-h4">
+            Или напишите мне <br /> в мессенджеры:
+          </div>
+          <a href="https://wa.me/+79206076602" title="whatsapp">
+            <div class="icon">
+              <img
+                src="./assets/img/icons/whatsapp.svg"
+                alt=""
+                loading="lazy"
+              />
+            </div>
+          </a>
+          <a href="https://t.me/+79206076602" title="whatsapp">
+            <div class="icon">
+              <img
+                src="./assets/img/icons/telegram.svg"
+                alt=""
+                loading="lazy"
+              />
+            </div>
+          </a>
+        </div>
+      </div>
+    </Section>
+
+    <!-- Agreement -->
+    <Section name="agreement">
+      .agreement
     </Section>
   </main>
 </App>

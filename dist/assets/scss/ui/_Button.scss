@@ -1,0 +1,35 @@
+.btn {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  transition: var(--transition-ease);
+
+  &.variant-solid {
+    padding: 30px 60px;
+    color: #fff;
+    font-size: 20px;
+    background: var(--primary);
+    border-radius: 999px;
+
+    &:hover {
+      background: var(--primary-dark);
+    }
+
+    @include media("3xl") {
+      padding: 25px 40px;
+      font-size: 16px;
+    }
+  }
+
+  &.size-small {
+    padding: 20px 35px;
+    font-size: 16px;
+
+    @include media("3xl") {
+      padding: 18px 30px;
+      font-size: 14px;
+    }
+  }
+}
