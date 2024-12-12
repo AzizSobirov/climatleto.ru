@@ -873,7 +873,195 @@ import { Section, Image, Icon, H1, H2, H3, H4 } from "ui";
 
     <!-- Discounts -->
     <Section name="discounts">
-      .discounts
+      <H2 class="font-semibold">Актуальные скидки и акции</H2>
+      <div class="discounts__form">
+        <div class="discounts__form-text">
+          <H2 class="font-semibold">-10% скидка пенсионерам</H2>
+          <p class="text-h4 text-gray">
+            <span class="font-semibold"
+              >Мы перезвоним в течение 10 минут и проконсультируем.</span
+            >
+            Консультация бесплатная и ни к чему не обязывает, вы можете отказаться
+            в любой момент.
+          </p>
+          <a href="#" class="discounts__form-contact">
+            <span><span>Или</span> напишите нам в WhatsApp</span>
+            <Icon src="whatsapp-green.svg" />
+          </a>
+        </div>
+
+        <Image class="discounts__form-img" src="discounts.png" />
+
+        <form class="discounts__form-content">
+          <H3 class="font-semibold">Заполните форму</H3>
+          <p class="text-h4 text-gray">
+            И мастер свяжется с вами в течение 10 минут
+          </p>
+          <input type="tel" class="phone-mask" />
+          <button class="btn variant-solid" type="submit"> Отправить </button>
+          <div class="text-policy text-gray">
+            Нажимая кнопку вы соглашаетесь с условиями
+            <span
+              class="text-primary font-semibold underline"
+              role="button"
+              tabindex="0"
+              aria-label="Политики конфиденциальности данных"
+              data-modal="policy"
+            >
+              Политики конфиденциальности данных
+            </span>
+          </div>
+        </form>
+      </div>
+    </Section>
+
+    <!-- Faq -->
+    <Section name="faq">
+      <H2>
+        <span class="font-semibold">Популярные вопросы,</span><br />
+        которые задают нашему <br /> менеджеру
+      </H2>
+      <H3 class="text-gray">
+        Часто для принятия правильного решения, стоит собрать больше <br /> информации,
+        ниже ответы на самые популярные вопросы
+      </H3>
+      <div class="faq__list" data-accordion="faq">
+        <div class="accordion">
+          <div class="accordion__header">
+            <div class="text-h4 font-semibold">Сколько стоит диагностика?</div>
+            <div class="accordion__header-icon"></div>
+          </div>
+          <div class="accordion__body">
+            <div class="accordion__content">
+              Наша диагностика стоит бесплатно! Мы приедем к Вам домой или в
+              офис, сделаем диагностику кондиционера и озвучим стоимость его
+              ремонта!
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion">
+          <div class="accordion__header">
+            <div class="text-h4 font-semibold">
+              Как часто нужно обслуживать кондиционер?
+            </div>
+            <div class="accordion__header-icon"></div>
+          </div>
+          <div class="accordion__body">
+            <div class="accordion__content">
+              Кондиционеры рекомендовано обслуживать не реже одного раза в
+              полгода. Для исправной работы сплит-системы проверяют весной перед
+              началом работы, и осенью, когда технику выключают на зимний
+              период. Если кондиционером вы пользуетесь не часто, как например в
+              офисе - каждый день, то достаточно обслуживать один раз в год
+              перед началом периодом использования.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion">
+          <div class="accordion__header">
+            <div class="text-h4 font-semibold">
+              Сколько времени занимает обслуживание?
+            </div>
+            <div class="accordion__header-icon"></div>
+          </div>
+          <div class="accordion__body">
+            <div class="accordion__content">
+              Обслуживание и чистка кондиционера занимает около одного часа,
+              чистка очень грязного кондиционера - займет около двух часов. Если
+              в процессе осмотра обнаружена поломка, срок ремонта зависит от
+              характера проблемы и сложности работы.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion">
+          <div class="accordion__header">
+            <div class="text-h4 font-semibold">
+              Какую вы даёте гарантию на свои работы?
+            </div>
+            <div class="accordion__header-icon"></div>
+          </div>
+          <div class="accordion__body">
+            <div class="accordion__content">
+              Компания ClimatLeto много лет занимается ремонтом и обслуживанием
+              кондиционеров различного назначения. На весь спектр работ клиенты
+              получают гарантию – от 12 до 36 месяцев, бланк по форме БСО-1
+              выдается владельцу на руки после завершения работ. Мастера сделают
+              все необходимое, чтоб кондиционеры настенного типа, комплексные
+              сплит-системы радовали владельцев, работали без перебоя длительный
+              срок.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion">
+          <div class="accordion__header">
+            <div class="text-h4 font-semibold">Зачем нужна дезинфекция?</div>
+            <div class="accordion__header-icon"></div>
+          </div>
+          <div class="accordion__body">
+            <div class="accordion__content">
+              В процессе работы на дренажных, фильтрационных элементах
+              накапливаются бактерии, грибки и вирусы. Микробы становятся
+              причиной опасных болезней. Избавиться от микроорганизмов можно
+              только при помощи полноценной обработки узлов специальным
+              антисептиком.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion">
+          <div class="accordion__header">
+            <div class="text-h4 font-semibold">
+              Чем грозит, если не обслуживать?
+            </div>
+            <div class="accordion__header-icon"></div>
+          </div>
+          <div class="accordion__body">
+            <div class="accordion__content">
+              Если не проводить профилактику, можно столкнуться с крупной
+              поломкой или негативными моментами – протечка конденсата,
+              появления неприятного запаха, ухудшение рабочих показателей. Наши
+              мастера проводят комплексные профилактические работы, которые
+              улучшат состояние техники, избавят владельцев от необходимости
+              дорогостоящего ремонта.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion">
+          <div class="accordion__header">
+            <div class="text-h4 font-semibold">Кондиционер не охлаждает?</div>
+            <div class="accordion__header-icon"></div>
+          </div>
+          <div class="accordion__body">
+            <div class="accordion__content">
+              Первая причина это недостаточно фреона в системе. В этом случае
+              нужно вызвать мастера для дозаправки, важно указать марку
+              кондиционера; вентилятор наружного или внутреннего блока не
+              запускается. Здесь причин может быть много: поломка модуля
+              управления, неисправность электродвигателя, межблочного
+              соединения; неисправность датчиков. Нужен профессиональный ремонт
+              или замена блока;
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion">
+          <div class="accordion__header">
+            <div class="text-h4 font-semibold">Скидка для пенсионеров</div>
+            <div class="accordion__header-icon"></div>
+          </div>
+          <div class="accordion__body">
+            <div class="accordion__content">
+              Мы предоставляем скидку пенсионерам 20% на работу мастера, в эту
+              стоимость не входят расходники.
+            </div>
+          </div>
+        </div>
+      </div>
     </Section>
   </main>
 </App>

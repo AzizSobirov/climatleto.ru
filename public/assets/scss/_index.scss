@@ -2301,7 +2301,7 @@ main {
       border-radius: 24px;
     }
     @include media("375px") {
-      height: 300px;
+      height: 290px;
     }
   }
 
@@ -2520,4 +2520,300 @@ main {
   }
 }
 
-// @include show(".steps");
+// ** discounts ** //
+.discounts {
+  padding: 50px 0;
+
+  @include media("sm") {
+    padding: 25px 0;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+
+    @include media("sm") {
+      gap: 20px;
+    }
+
+    & > .text-h2 {
+      width: 100%;
+      text-align: center;
+
+      @include media("sm") {
+        font-size: 24px;
+      }
+    }
+  }
+
+  &__form {
+    position: relative;
+    padding: 50px 60px;
+    width: 100%;
+    background: #f8f8f8;
+    border-radius: 40px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    @include media("3xl") {
+      padding: 40px 50px;
+    }
+    @include media("lg") {
+      text-align: center;
+      flex-direction: column;
+      gap: 0px;
+    }
+    @include media("sm") {
+      padding: 30px 15px;
+      border-radius: 24px;
+    }
+
+    &-text {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 480px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+
+      .text-h2 {
+        font-size: 32px;
+      }
+
+      p {
+        line-height: 1.4;
+      }
+
+      @include media("3xl") {
+        max-width: 480px;
+
+        p {
+          font-size: 16px;
+        }
+      }
+      @include media("lg") {
+        max-width: 100%;
+        align-items: center;
+      }
+      @include media("sm") {
+        .text-h2 {
+          font-size: 24px;
+          width: 100%;
+          text-align: center;
+        }
+      }
+    }
+
+    &-img {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      height: 85%;
+      transform: translateX(-50%);
+
+      @include media("lg") {
+        position: relative;
+        left: 0;
+        transform: translate(0, -105px);
+        height: auto;
+        width: 280px;
+      }
+      @include media("sm") {
+        border-radius: 24px;
+      }
+    }
+
+    &-contact {
+      margin-top: 20px;
+      padding: 18px 30px;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 2.5;
+      background: var(--text-color);
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      transition: var(--transition-ease);
+      --icon-size: 30px;
+
+      &:hover {
+        opacity: 0.9;
+      }
+
+      @include media("3xl") {
+        padding: 15px 30px;
+        font-size: 16px;
+        --icon-size: 24px;
+      }
+      @include media("lg") {
+        transform: translateY(230px);
+      }
+
+      @include media("sm") {
+        padding: 20px 25px;
+        font-size: 14px;
+        line-height: 1.2;
+        --icon-size: 30px;
+
+        span {
+          &::first-letter {
+            text-transform: uppercase;
+          }
+
+          & > span {
+            display: none;
+          }
+        }
+      }
+    }
+
+    &-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 465px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+
+      @include media("3xl") {
+        max-width: 380px;
+      }
+      @include media("sm") {
+        gap: 10px;
+      }
+
+      .text-h3 {
+        font-size: 28px;
+
+        @include media("sm") {
+          font-size: 22px;
+        }
+      }
+
+      .text-h4 {
+        margin-bottom: 5px;
+        font-size: 17px;
+
+        @include media("sm") {
+          font-size: 16px;
+        }
+      }
+
+      input {
+        padding: 0 30px;
+        width: 100%;
+        height: 85px;
+        color: var(--text-color);
+        font-size: 18px;
+        background: #fff;
+        border-radius: 999px;
+
+        @include media("3xl") {
+          padding: 0 25px;
+          height: 65px;
+          font-size: 14px;
+        }
+      }
+
+      & > .iti {
+        padding-left: 20px;
+        color: var(--text-color);
+        width: 100%;
+        font-size: 18px;
+        background: #fff;
+        border-radius: 999px;
+
+        @include media("3xl") {
+          font-size: 14px;
+        }
+
+        button {
+          margin-left: 20px;
+        }
+      }
+
+      .btn {
+        padding: 0 !important;
+        height: 85px;
+        width: 100%;
+        font-size: 18px;
+        font-weight: 700;
+
+        @include media("3xl") {
+          height: 65px;
+          font-size: 16px;
+        }
+      }
+
+      .text-policy {
+        width: 100%;
+        text-align: center;
+        line-height: 1.5;
+
+        @include media("3xl") {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+// ** faq ** //
+.faq {
+  padding: 50px 0;
+
+  @include media("sm") {
+    padding: 25px 0;
+  }
+
+  .container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .text-h2 {
+    @include media("3xl", min-width) {
+      font-size: 44px;
+    }
+    @include media("sm") {
+      font-size: 24px;
+    }
+  }
+
+  .text-h3 {
+    @include media("sm") {
+      font-size: 16px;
+    }
+  }
+
+  &__list {
+    margin-top: 10px;
+    width: 100%;
+    max-width: 880px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+
+    @include media("sm") {
+      margin-top: 0;
+    }
+  }
+}
+
+// @include show(".faq");
