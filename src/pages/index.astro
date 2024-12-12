@@ -88,9 +88,9 @@ import { Section, Image, Icon, H1, H2, H3, H4 } from "ui";
         <br />
         для вашего кондиционера за 60 секунд
       </H2>
-      <!-- <iframe
+      <iframe
         src="//quiz.marquiz.ru/65e34a1cb1c84f0026ec36d1?cookies=%7B%22_ym_uid%22%3A%221733549456595564081%22%7D&href=https%3A%2F%2Fclimatleto.ru%2F&mode=inline&referrer=https%3A%2F%2Fclimatleto.ru%2F"
-      ></iframe> -->
+      ></iframe>
     </Section>
 
     <!-- Services -->
@@ -737,7 +737,33 @@ import { Section, Image, Icon, H1, H2, H3, H4 } from "ui";
 
     <!-- Agreement -->
     <Section name="agreement">
-      .agreement
+      <div class="agreement__text">
+        <H2 class="font-semibold">
+          Работаем по
+          <span class="text-primary">простому и <br> понятному договору</span>
+          на <br> одном листе
+        </H2>
+        <ul class="agreement__list">
+          <li class="agreement__list-item">
+            <H3>Фиксируем весь объем работ в договоре</H3>
+          </li>
+          <li class="agreement__list-item">
+            <H3>Цена не изменяется в процессе работ</H3>
+          </li>
+          <li class="agreement__list-item">
+            <H3>Строго соблюдаем сроки</H3>
+          </li>
+          <li class="agreement__list-item">
+            <H3>Работаем без пыли и грязи, гарантируем чистоту</H3>
+          </li>
+          <li class="agreement__list-item">
+            <H3>Гарантия 1 год после оказания услуг</H3>
+          </li>
+        </ul>
+      </div>
+      <div class="agreement__img">
+        <Image src="agreement.png" />
+      </div>
     </Section>
   </main>
 </App>
